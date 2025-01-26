@@ -87,7 +87,7 @@ body {
 }
 
 .container {
-  @apply mx-auto w-[95%] xs:w-[90%];
+  @apply xs:w-[90%] w-[95%] mx-auto;
 }
 
 .customIcon {
