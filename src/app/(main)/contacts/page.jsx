@@ -38,8 +38,10 @@ export const ContactsPage = () => {
   return (
     <div>
       <div className="w-[80%] mx-auto">
-        <TypographyH1>Контакты</TypographyH1>
-        <div className="">
+        <div className="text-center">
+          <TypographyH1>Контакты</TypographyH1>
+        </div>
+        <div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-16">
             {socials.map((s) => (
               <Card key={s.label}>

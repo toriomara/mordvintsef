@@ -23,7 +23,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { SocialIcons } from "./SocialIcons";
 
 export function MobileMenu({ links }) {
-  const isDesktop = useMediaQuery("(max-width: 1024px)");
+  const isDesktop = useMediaQuery("(max-width: 1280px)");
 
   return (
     isDesktop && (

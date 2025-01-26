@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { FaEnvelope } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
 import { SocialIcons } from "./SocialIcons";
+import { VscSend } from "react-icons/vsc";
 
 export const EmailSection = () => {
   return (
@@ -33,7 +33,6 @@ export const EmailSection = () => {
                 Почта *
               </label>
               <Input
-                // className="bg-white"
                 name="email"
                 type="email"
                 id="email"
@@ -94,8 +93,8 @@ export const EmailSection = () => {
             </div>
           </div>
           <Button className="w-full" type="submit">
-            <FaEnvelope className="h-4 w-4 mr-2" />
             Отправить
+            <VscSend />
           </Button>
         </form>
       </div>

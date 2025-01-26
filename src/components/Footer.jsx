@@ -15,7 +15,7 @@ export const Footer = () => {
             <Logo />
             <h4 className="font-semibold text-xl">Адвокат Р.Ф. Мордвинцев</h4>
             <a
-              className="cursor:pointer hover:underline"
+              className="link cursor:pointer"
               href="https://www.apvo-volgograd.ru/lawyer-list/register-lawyers/"
               target="blank"
               rel="noopener noreferrer"
@@ -27,7 +27,7 @@ export const Footer = () => {
               мая 2002 г. N 63-ФЗ «Об адвокатской деятельности и адвокатуре в
               Российской Федерации»
             </p>
-            <Link className="leading-4 text-sm font-light link" href="/privacy">
+            <Link className="link leading-4 text-sm font-light link" href="/privacy">
               Политика в отношении обработки персональных данных
             </Link>
           </div>
@@ -64,7 +64,7 @@ export const Footer = () => {
               </span>
             </Link>
             <Link
-              className="flex max-w-max items-start text-sm xs:text-base"
+              className="link flex max-w-max items-start text-sm xs:text-base"
               href="mailto:r.mordvintseff@ya.ru"
               passHref={true}
             >
@@ -75,7 +75,7 @@ export const Footer = () => {
               <span>r.mordvintseff@yandex.ru</span>
             </Link>
             <Link
-              className="flex max-w-max items-start text-sm xs:text-base"
+              className="link flex max-w-max items-start text-sm xs:text-base"
               href="tel:+79608670139"
               passHref={true}
             >
@@ -89,20 +89,20 @@ export const Footer = () => {
           <div className="grid lg:col-span-2 gap-4 md:col-span-1">
             <h4 className="font-semibold text-xl">Вопрос</h4>
             <span className="text-sm xs:text-base">Задать вопрос адвокату</span>
-            <Button className="w-full" type="submit">
-              Отправить
+            <Button className="max-w-fit" type="submit">
+              Написать
             </Button>
           </div>
         </div>
-        <div className="grid gap-3 sm:flex sm:justify-between pt-6">
+        <div className="grid gap-3 sm:flex sm:justify-between pt-4">
           <span className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Адвокат Р.Ф. Мордвинцев. Все права
             защищены
           </span>
           <SocialIcons layout={"flex"} />
         </div>
-        <div className="text-sm text-muted-foreground order-2">
-          Разработка <a href="#">toriomara</a>
+        <div className="text-sm text-muted-foreground order-2 py-2">
+          Разработка <a href="#" className="link">toriomara</a>
         </div>
       </div>
     </footer>

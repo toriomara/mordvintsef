@@ -10,6 +10,10 @@ import { PhoneBlock } from "./PhoneBlock";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import theme from "tailwindcss/defaultTheme";
+import { dark, light } from "@clerk/themes";
+import { FiUser } from "react-icons/fi";
 
 export const Header = () => {
   const checkActivePath = useActivePath();
@@ -35,7 +39,7 @@ export const Header = () => {
       <div className="container">
         <nav className="flex items-center justify-between gap-10 min-h-16">
           <Logo />
-          <div className="menu hidden lg:flex md:w-auto" id="navbar">
+          <div className="menu hidden xl:flex md:w-auto" id="navbar">
             <div className="md:flex-row p-4 md:p-0 lg:space-x-10 xl:space-x-10 items-center text-sm font-light">
               {navLinks.map((link, index) => (
                 <Link
@@ -52,14 +56,28 @@ export const Header = () => {
               ))}
             </div>
           </div>
-          <div className="inline-flex">
-            <div className="hidden lg:block">
+          <div className="inline-flex gap-4">
+            <div className="hidden lg:flex">
+              <SignedOut>
+                <Link href="sign-in">
+                  <Button>
+                    <FiUser />
+                    SignIn
+                  </Button>
+                </Link>
+              </SignedOut>
+              <SignedIn>
+                <UserButton
+                  appearance={{
+                    baseTheme: theme === "light" ? light : dark,
+                  }}
+                />
+              </SignedIn>
+            </div>
+            <div className="hidden md:flex">
               <PhoneBlock />
             </div>
-            <div className="flex lg:hidden mx-4">
-              <MobileMenu links={navLinks} />
-            </div>
-            <div className="hidden xs:flex">
+            <div className="hidden md:flex">
               <Link href="/search">
                 <Button
                   className="px-4 bg-background border"
@@ -71,8 +89,11 @@ export const Header = () => {
                 </Button>
               </Link>
             </div>
-            <div className="hidden lg:flex">
+            <div className="hidden md:flex">
               <ModeToggle />
+            </div>
+            <div className="flex mx-4">
+              <MobileMenu links={navLinks} />
             </div>
           </div>
         </nav>

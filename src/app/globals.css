@@ -93,3 +93,11 @@ body {
 .customIcon {
   @apply h-10 w-10;
 }
+
+.centered {
+  @apply flex justify-center items-center;
+}
+
+.link {
+  @apply hover:text-primary hover:underline transition-all duration-300;
+}
