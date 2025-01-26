@@ -19,10 +19,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider
-      {...pageProps}
-      publishableKey={process.env.PUBLISHABLE_KEY}
-    >
+    <ClerkProvider publishableKey={process.env.PUBLISHABLE_KEY}>
       <html lang="en" suppressHydrationWarning>
         <body
           className={`${inter.variable} antialiased flex flex-col h-screen w-full`}
