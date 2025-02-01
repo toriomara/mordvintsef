@@ -1,7 +1,7 @@
 "use server"; // First version on server search ? N\Do not use
 
 import { NextResponse } from "next/server";
-import prisma from "@/libs/prismadb";
+import prisma from "@/lib/prismadb";
 
 export const GET = async (req, res) => {
   try {
