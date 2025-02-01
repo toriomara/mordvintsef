@@ -2,7 +2,7 @@
 
 "use client";
 
-import { Card } from "@/components/Card";
+import { CardContact } from "@/components/CardContact";
 import { DrawerMap } from "@/components/DrawerMap";
 import { EmailSection } from "@/components/EmailSection";
 import GoogleMap from "@/components/GoogleMap";
@@ -44,16 +44,13 @@ export const ContactsPage = () => {
         <div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-16">
             {socials.map((s) => (
-              <Card key={s.label}>
+              <CardContact key={s.label}>
                 <Link
                   href={s.href}
                   target="_blank"
                   className="relative p-6 xs:p-8 md:p-10 xl:py-20 flex flex-col items-center gap-6 md:gap-12 xl:gap-16 duration-700"
                 >
-                  <span
-                    className="hidden dark:flex absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
-                    aria-hidden="true"
-                  />
+                  <span className="hidden dark:flex absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent" />
                   <span className="relative z-10 flex items-center justify-center w-14 h-14 md:w-20 md:h-20 text-sm duration-1000 border rounded-full text-zinc-800 dark:text-zinc-200 group-hover:text-primary group-hover:bg-white group-hover:dark:bg-zinc-900 border-zinc-500 bg-white dark:bg-zinc-900 group-hover:dark:border-zinc-200">
                     {s.icon}
                   </span>{" "}
@@ -66,14 +63,13 @@ export const ContactsPage = () => {
                   </span> */}
                   </div>
                 </Link>
-              </Card>
+              </CardContact>
             ))}
             {/* YET ANOTHER CARD */}
-            {/* <Card>
+            {/* <CardContact>
               <div className="relative p-6 xs:p-8 md:p-10 xl:py-20 flex flex-col items-center gap-6 md:gap-12 xl:gap-16 duration-700">
                 <span
                   className="hidden dark:flex absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
-                  aria-hidden="true"
                 />
                 <span className="relative z-10 flex items-center justify-center w-14 h-14 md:w-20 md:h-20 text-sm duration-1000 border rounded-full text-zinc-800 dark:text-zinc-200 group-hover:text-primary group-hover:bg-white group-hover:dark:bg-zinc-900 border-zinc-500 bg-white dark:bg-zinc-900 group-hover:dark:border-zinc-200">
                   <FaMapLocationDot size={30} />
@@ -84,12 +80,12 @@ export const ContactsPage = () => {
                   </span>
                 </div>
               </div>
-            </Card> */}
+            </CardContact> */}
             {/* <DrawerMap /> */}
           </div>
         </div>
       </div>
-      <div className="h-96 my-16">
+      <div className="my-16">
         <GoogleMap />
       </div>
       <EmailSection />

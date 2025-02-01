@@ -10,7 +10,9 @@ const stats = [
 export const StatisticSection = () => {
   return (
     <section className="my-10">
-      <h2 className="text-3xl font-bold text-center mb-12">Моя статистика</h2>
+      <h2 className="text-3xl font-bold text-center mb-12">
+        Немного статистики
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
           <Card key={index} className="bg-primary-foreground">

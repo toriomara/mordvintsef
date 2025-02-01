@@ -7,13 +7,13 @@ import { navLinks } from "@/constants";
 import { useActivePath } from "@/hooks/useActivePath";
 import { MobileMenu } from "./MobileMenu";
 import { PhoneBlock } from "./PhoneBlock";
-import { AiOutlineSearch } from "react-icons/ai";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import theme from "tailwindcss/defaultTheme";
 import { dark, light } from "@clerk/themes";
 import { FiUser } from "react-icons/fi";
+import { SearchModal } from "./SearchModal";
 
 export const Header = () => {
   const checkActivePath = useActivePath();
@@ -32,9 +32,10 @@ export const Header = () => {
 
   return (
     <header
-      className={`sticky inset-x-0 top-0 backdrop-blur scroll-border-b z-50 duration-200 ${
+      className={`sticky inset-x-0 top-0 backdrop-blur scroll-border-b z-50 duration-300 ${
         isScrolled ? "border-b" : ""
-      }`}
+      }`
+    }
     >
       <div className="container">
         <nav className="flex items-center justify-between gap-10 min-h-16">
@@ -48,7 +49,7 @@ export const Header = () => {
                   className={`${
                     checkActivePath(link.path)
                       ? "text-primary dark:text-primary"
-                      : "text-gray-700 dark:text-gray-400 hover:text-primary dark:hover:text-primary"
+                      : "text-zinc-900 dark:text-zinc-300 hover:text-primary dark:hover:text-primary"
                   }`}
                 >
                   {link.title}
@@ -78,21 +79,22 @@ export const Header = () => {
               <PhoneBlock />
             </div>
             <div className="hidden md:flex">
-              <Link href="/search">
+              <SearchModal />
+              {/* <Link href="/search">
                 <Button
                   className="px-4 bg-background border"
                   variant="secondary"
                   // onClick={() => setOpen(true)}
                 >
-                  <AiOutlineSearch className="fill-gray-500 mr-2 h-[20px] w-[20px]" />
-                  <span className="text-gray-400">Ctrl K</span>
+                  <AiOutlineSearch className="fill-zinc-500 mr-2 h-[20px] w-[20px]" />
+                  <span className="text-zinc-400">Ctrl K</span>
                 </Button>
-              </Link>
+              </Link> */}
             </div>
             <div className="hidden md:flex">
               <ModeToggle />
             </div>
-            <div className="flex mx-4">
+            <div className="flex xl:hidden">
               <MobileMenu links={navLinks} />
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { TypographyH3 } from "./ui/TypographyH3";
+import LogoBlack from "../../public/logo.svg";
 
 export const AboutSection = () => {
   return (
@@ -43,11 +44,8 @@ export const AboutSection = () => {
         </div>
         <div className="md:w-1/2 flex justify-center">
           <Avatar className="w-64 h-64">
-            <AvatarImage
-              src="/placeholder.svg?height=256&width=256"
-              alt="Lawyer"
-            />
-            <AvatarFallback>JD</AvatarFallback>
+            <AvatarImage src="https://harant.ru/wp-content/uploads/2023/05/160523-114637-harant-150x150.png.webp" />
+            <AvatarFallback>CN</AvatarFallback>
           </Avatar>
         </div>
       </div>

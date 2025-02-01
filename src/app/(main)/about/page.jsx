@@ -1,3 +1,6 @@
+import { CertificateSection } from "@/components/CertificateSection";
+import { CertificateSectionCarousel } from "@/components/CertificateSectionCarousel";
+import { HarantSection } from "@/components/HarantSection";
 import { MissionSection } from "@/components/MissionSection";
 import { Testimonials } from "@/components/Testimonials";
 import { TypographyH1 } from "@/components/ui/TypographyH1";
@@ -11,9 +14,14 @@ export const metadata = {
 function AboutPage() {
   return (
     <div className="w-[80%] mx-auto">
-      <TypographyH1>Об адвокате Р.Ф.&nbsp;Мордвинцеве</TypographyH1>
+      <TypographyH1 position={"flex justify-center"}>
+        Об адвокате Р.Ф.&nbsp;Мордвинцеве
+      </TypographyH1>
       <MissionSection />
       <Testimonials />
+      {/* <CertificateSection /> */}
+      <CertificateSectionCarousel />
+      <HarantSection />
     </div>
   );
 }

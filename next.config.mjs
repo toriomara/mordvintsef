@@ -6,6 +6,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    domains: ["m3.material.io"],
     remotePatterns: [
       {
         protocol: "https",
