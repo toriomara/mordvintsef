@@ -10,12 +10,12 @@ export default function HomePage() {
   return (
     <div className="grid w-[80%] mx-auto">
       <HeroSection />
-      <AboutSection />
       <StatisticSection />
-      <BenefitSection />
-      <ServiceWithContent />
+      <AboutSection />
       <ServiceSection />
+      {/* <ServiceWithContent /> */}
       <Testimonials />
+      <BenefitSection />
     </div>
   );
 }
