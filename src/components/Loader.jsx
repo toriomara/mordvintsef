@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const Loader = () => {
   return (
-    <div className="flex justify-center items-center w-full">
+    <div className="flex w-full justify-center items-center">
       <Image
         src={loader}
         alt="Loader"

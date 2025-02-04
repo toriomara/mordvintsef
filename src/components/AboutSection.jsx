@@ -1,18 +1,19 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { TypographyH3 } from "./ui/TypographyH3";
-import LogoBlack from "../../public/logo.svg";
+import { TypographyH2 } from "./ui/TypographyH2";
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="my-10">
+    <section id="about" className="w-[80%] mx-auto my-10">
       <div className="flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-1/2">
-          <h2 className="text-3xl font-bold mb-4">Об адвокате</h2>
-          <TypographyH3>Статус</TypographyH3>
+          <TypographyH2 position={"mb-4"}>Об адвокате</TypographyH2>
+          <TypographyH3 position={"text-muted-foreground"}>Статус</TypographyH3>
           <p className="mb-4">
-            Адвокат адвокатской коллегии адвокатов г. Волгограда №1
+            Адвокат, филиал №&nbsp;10 Волгоградской межрайонной коллегии
+            адвокатов
           </p>
-          <TypographyH3>
+          <TypographyH3 position={"text-muted-foreground"}>
             Специализация и основное направление деятельности
           </TypographyH3>
           <p className="mb-4">
@@ -28,16 +29,25 @@ export const AboutSection = () => {
             защитника в ходе доследственной проверки, на стадии предварительного
             расследования, в суде первой инстанции.
           </p>
-          <TypographyH3>Образование</TypographyH3>
+          <TypographyH3 position={"text-muted-foreground"}>
+            Образование
+          </TypographyH3>
           <p className="mb-4">
-            В 2004 году окончил юридический факультет Волгоградского
-            государственного университета. Присвоена квалификация Юрист.
+            Высшее юридическое. В 2004&nbsp;году окончил юридический факультет
+            Волгоградского государственного университета
           </p>
-          <TypographyH3>Профессиональный путь</TypographyH3>
-          <p className="mb-4">Description2</p>
-          <TypographyH3>Профессиональные достижения</TypographyH3>
+          <TypographyH3 position={"text-muted-foreground"}>
+            Профессиональный путь
+          </TypographyH3>
           <p className="mb-4">
-            В 2014 году награжден грамотой Адвокатской палаты Волгоградской
+            С 2012&nbsp;года осуществляю профессиональную деятельность в Филиале
+            №&nbsp;10 Волгоградской межрайонной коллегии адвокатов
+          </p>
+          <TypographyH3 position={"text-muted-foreground"}>
+            Профессиональные достижения
+          </TypographyH3>
+          <p className="mb-4">
+            В 2014&nbsp;году награжден грамотой Адвокатской палаты Волгоградской
             области «За профессиональное мастерство при защите прав, свобод и
             законных интересов граждан, продолжительную и безупречную работу»
           </p>

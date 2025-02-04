@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { TypographyH2 } from "./ui/TypographyH2";
 
 const stats = [
-  { number: "2000+", label: "Успешных дел" },
+  { number: "> 1000", label: "Успешных дел" },
   { number: "17+", label: "Адвокатская практика" },
   { number: "21", label: "Юридический стаж" },
   { number: "98%", label: "Довольных клиентов" },
@@ -9,22 +10,23 @@ const stats = [
 
 export const StatisticSection = () => {
   return (
-    <section className="my-10">
-      <h2 className="text-3xl font-bold text-center mb-12">
+    <section className="w-[80%] mx-auto my-10">
+      <TypographyH2 position={"flex justify-center mb-6"}>
         Немного статистики
-      </h2>
+      </TypographyH2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
-          <Card key={index} className="bg-primary-foreground">
-            <CardHeader>
-              <CardTitle className="text-3xl sm:text-4xl font-bold text-center">
+          <div
+            key={index}
+            className="p-6 bg-white dark:bg-background dark:border rounded-lg shadow-md flex flex-col items-center text-center transition hover:shadow-xl"
+          >
+            <div>
+              <span className="text-xl md:text-2xl lg:text-3xl font-bold text-center space-y-0">
                 {stat.number}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-center">{stat.label}</p>
-            </CardContent>
-          </Card>
+              </span>
+            </div>
+            <p className="text-center">{stat.label}</p>
+          </div>
         ))}
       </div>
     </section>

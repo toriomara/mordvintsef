@@ -4,17 +4,15 @@ import { HeroSection } from "@/components/HeroSection";
 import { ServiceSection } from "@/components/ServiceSection";
 import { StatisticSection } from "@/components/StatisticSection";
 import { Testimonials } from "@/components/Testimonials";
-import { ServiceWithContent } from "@/components/ServiceWithContent";
 
 export default function HomePage() {
   return (
-    <div className="grid w-[80%] mx-auto">
+    <div className="grid">
       <HeroSection />
-      <StatisticSection />
       <AboutSection />
-      <ServiceSection />
-      {/* <ServiceWithContent /> */}
-      <Testimonials />
+      {/* <StatisticSection /> */}
+      {/* <ServiceSection /> */}
+      {/* <Testimonials /> */}
       <BenefitSection />
     </div>
   );

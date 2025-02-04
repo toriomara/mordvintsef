@@ -21,7 +21,10 @@ export const Footer = () => {
               target="blank"
               rel="noopener noreferrer"
             >
-              <span>№ 34/1803 в реестре адвокатов Волгоградской области</span>
+              <span>
+                Регистрационный номер 34/1803 в Едином государственном реестре
+                адвокатов
+              </span>
               {/* &nbsp; */}
               <HiOutlineExternalLink
                 size={14}

@@ -38,7 +38,7 @@ export const SearchModal = () => {
             className="flex items-center gap-1 px-3 py-1 text-xs border rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-900 dark:border-border"
           > */}
           <Search className="w-3 h-3 text-zinc-500 dark:text-zinc-300" />
-          <span className="">Search...</span>
+          <span className="">Поиск...</span>
           <kbd className="ml-auto px-2 py-1 border rounded bg-zinc-100 dark:bg-black text-zinc-500 dark:text-zinc-300 dark:border-zinc-600">
             Ctrl
           </kbd>

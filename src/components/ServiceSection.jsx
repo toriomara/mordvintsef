@@ -6,7 +6,7 @@ import {
   LuGavel,
   LuShieldCheck,
   LuFileText,
-  LuBuilding2,
+  LuUsers,
   LuBanknote,
   LuHouse,
   LuShoppingCart,
@@ -48,11 +48,11 @@ const services = [
   },
   {
     icon: (
-      <LuBuilding2 className="w-12 h-12 text-indigo-500 dark:text-indigo-400" />
+      <LuUsers className="w-12 h-12 text-indigo-500 dark:text-indigo-400" />
     ),
-    title: "Корпоративное право",
+    title: "Семейные споры",
     description:
-      "Юридическое сопровождение бизнеса, регистрация, ликвидация, споры между учредителями",
+      "Развод, раздел имущества и споры, касающиеся воспитания детей",
   },
   {
     icon: (
@@ -109,7 +109,7 @@ const services = [
 
 export const ServiceSection = () => {
   return (
-    <section className="py-16 bg-zinc-100 dark:bg-zinc-900">
+    <section className="w-[80%] mx-auto py-12 bg-zinc-100 dark:bg-zinc-900">
       <div className="container mx-auto px-6 text-center">
         <TypographyH2 position={"flex justify-center my-10"}>
           Мои услуги

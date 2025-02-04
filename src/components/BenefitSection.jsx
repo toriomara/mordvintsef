@@ -57,6 +57,7 @@ import {
   FaMoneyBillWave,
   FaUserShield,
 } from "react-icons/fa";
+import { TypographyH2 } from "./ui/TypographyH2";
 
 const reasons = [
   {
@@ -117,15 +118,15 @@ const reasons = [
 
 export const BenefitSection = () => {
   return (
-    <div className="container mx-auto py-12 px-6">
-      <h2 className="text-3xl font-bold text-center text-zinc-900 dark:text-white mb-8">
+    <div className="w-[80%] mx-auto py-12 px-6">
+      <TypographyH2 position={"flex text-center mb-6"}>
         Преимущества профессионального адвоката или почему выбирают меня?
-      </h2>
+      </TypographyH2>
       <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
         {reasons.map((reason, index) => (
           <div
             key={index}
-            className="p-6 bg-white dark:bg-zinc-800 rounded-2xl shadow-md flex flex-col items-center text-center transition hover:shadow-xl"
+            className="p-6 bg-white dark:bg-background dark:border rounded-lg shadow-md flex flex-col items-center text-center transition hover:shadow-xl"
           >
             <reason.icon className="text-primary text-5xl mb-4" />
             <h3 className="text-md font-semibold text-zinc-900 dark:text-white whitespace-pre-wrap">
