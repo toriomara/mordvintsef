@@ -10,8 +10,8 @@ const stats = [
 
 export const StatisticSection = () => {
   return (
-    <section className="w-[80%] mx-auto my-10">
-      <TypographyH2 position={"flex justify-center mb-6"}>
+    <section className="w-[75%] mx-auto my-10">
+      <TypographyH2 position={"flex justify-center text-center mb-6"}>
         Немного статистики
       </TypographyH2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">

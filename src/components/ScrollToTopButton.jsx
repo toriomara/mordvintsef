@@ -30,7 +30,7 @@ export const ScrollToTopButton = () => {
         <Button
           variant="outline"
           size="icon"
-          className="sticky group w-10 h-10 bottom-6 border bg-background rounded-full shadow-md shadow-blue-400 dark:shadow-green-600 transition duration-300 ease-in-out ml-[87%] xs:ml-[90%] sm:ml-[93%]"
+          className="sticky group w-10 h-10 bottom-6 border bg-background rounded-full shadow-md shadow-blue-400 dark:shadow-green-600 transition duration-300 ease-in-out ml-[84%] xs:ml-[90%] sm:ml-[93%]"
           onClick={goToTop}
         >
           <FaArrowUp className="group-hover:text-blue-600 text-zinc-500 dark:group-hover:text-green-600" />

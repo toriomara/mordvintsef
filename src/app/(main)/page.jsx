@@ -10,9 +10,9 @@ export default function HomePage() {
     <div className="grid">
       <HeroSection />
       <AboutSection />
-      {/* <StatisticSection /> */}
-      {/* <ServiceSection /> */}
-      {/* <Testimonials /> */}
+      <StatisticSection />
+      <ServiceSection />
+      <Testimonials />
       <BenefitSection />
     </div>
   );

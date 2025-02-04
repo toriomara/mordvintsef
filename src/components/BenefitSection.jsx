@@ -64,7 +64,7 @@ const reasons = [
     icon: FaBalanceScale,
     title: "Глубокие знания законодательства",
     description:
-      "Адвокат всегда в курсе актуальных законов и судебной практики, что позволяет применять их в вашу пользу",
+      "Всегда в курсе актуальных законов и судебной практики, что позволяет применять их в вашу пользу",
   },
   {
     icon: FaBrain,
@@ -76,13 +76,13 @@ const reasons = [
     icon: FaClock,
     title: "Экономия времени и нервов",
     description:
-      "Опытный адвокат берет на себя все сложные процессы, избавляя вас от стресса и бюрократии",
+      "Беру на себя все сложные процессы, избавляя вас от стресса и бюрократии",
   },
   {
     icon: FaShieldAlt,
     title: "Защита от ошибок",
     description:
-      "Неправильные документы и пропущенные сроки могут стоить дорого. Профессиональный адвокат предугадывает и предотвращает ошибки",
+      "Неправильные документы и пропущенные сроки могут стоить дорого. Профессиональный адвокат не допускает таких ошибок",
   },
   {
     icon: FaGavel,
@@ -94,7 +94,7 @@ const reasons = [
     icon: FaHandshake,
     title: "Переговоры и досудебное урегулирование",
     description:
-      "Адвокат может урегулировать дело без суда, что сэкономит вам время, деньги и нервы",
+      "Возможность дело без суда, что сэкономит вам время, деньги и нервы",
   },
   {
     icon: FaLink,
@@ -106,7 +106,7 @@ const reasons = [
     icon: FaMoneyBillWave,
     title: "Финансовая выгода в долгосрочной перспективе",
     description:
-      "Качественная юридическая помощь может уберечь вас от крупных убытков",
+      "Качественная юридическая помощь сможет уберечь вас от крупных убытков",
   },
   {
     icon: FaUserShield,
@@ -118,8 +118,8 @@ const reasons = [
 
 export const BenefitSection = () => {
   return (
-    <div className="w-[80%] mx-auto py-12 px-6">
-      <TypographyH2 position={"flex text-center mb-6"}>
+    <div className="w-[75%] mx-auto py-12">
+      <TypographyH2 position={"flex justify-center text-center mb-6"}>
         Преимущества профессионального адвоката или почему выбирают меня?
       </TypographyH2>
       <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
@@ -132,7 +132,7 @@ export const BenefitSection = () => {
             <h3 className="text-md font-semibold text-zinc-900 dark:text-white whitespace-pre-wrap">
               {reason.title}
             </h3>
-            <p className="text-zinc-600 dark:text-zinc-300 mt-2">
+            <p className="hidden md:flex text-zinc-600 dark:text-zinc-300 mt-2">
               {reason.description}
             </p>
           </div>

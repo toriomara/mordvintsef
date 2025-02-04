@@ -291,7 +291,7 @@ export default function ServicesPage() {
         </div>
       ))}
       <section className="max-w-5xl mx-auto">
-        <TypographyH2>Почему защита адвоката всегда оправдана?</TypographyH2>
+        <TypographyH2 position={'flex text-center justify-center'}>Почему защита адвоката всегда оправдана?</TypographyH2>
         <TypographyP>
           Юридическая помощь — это не та сфера, в которой экономия может
           привести к желаемому результату. Ошибки в защите прав, неправильно
