@@ -66,7 +66,7 @@ export const TestimonialsSlider = ({ testimonials }) => {
         </div>
       </div>
       {/* Text */}
-      <div className="mb-9 transition-all duration-150 delay-300 ease-in-out">
+      <div className="mb-6 min-h-[500px] xs:min-h-[400px] md:min-h-[300px] lg:min-h-[240px] xl:min-h-[200px] transition-all duration-150 delay-300 ease-in-out">
         <div className="relative flex flex-col" ref={testimonialsRef}>
           {testimonials.map((testimonial, index) => (
             <Transition
@@ -81,7 +81,7 @@ export const TestimonialsSlider = ({ testimonials }) => {
               leaveTo="opacity-0 translate-x-4"
               beforeEnter={() => heightFix()}
             >
-              <div className="text-xl before:content-['\201C'] after:content-['\201D']">
+              <div className="text-md xs:text-lg md:text-xl before:content-['\201C'] after:content-['\201D']">
                 {testimonial.text}
               </div>
             </Transition>

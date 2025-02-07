@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,7 +18,7 @@ export const metadata = {
   metadataBase: new URL("https://mordvintsef.vercel.app"),
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout(props) {
   return (
     <ClerkProvider
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
@@ -32,7 +33,8 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <Toaster />
+            {props.children}
           </ThemeProvider>
         </body>
       </html>

@@ -13,9 +13,11 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import theme from "tailwindcss/defaultTheme";
 import { dark, light } from "@clerk/themes";
 import { FiUser } from "react-icons/fi";
-import { SearchModal } from "./SearchModal";
+import { useRouter } from "next/navigation";
+import SearchModalPage from "@/app/(main)/@modal/(.)search/page";
 
 export const Header = () => {
+  const router = useRouter();
   const checkActivePath = useActivePath();
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -34,8 +36,7 @@ export const Header = () => {
     <header
       className={`sticky inset-x-0 top-0 backdrop-blur scroll-border-b z-50 duration-300 ${
         isScrolled ? "border-b" : ""
-      }`
-    }
+      }`}
     >
       <div className="container">
         <nav className="flex items-center justify-between gap-10 min-h-16">
@@ -78,8 +79,12 @@ export const Header = () => {
             <div className="hidden md:flex">
               <PhoneBlock />
             </div>
-            <div className="hidden md:flex">
-              <SearchModal />
+            <div className="hidden md:flex gap-2">
+              {/* <SearchModal /> */}
+              <SearchModalPage />
+              <Button variant="outline" onClick={() => router.push("/search")}>
+                Search
+              </Button>
               {/* <Link href="/search">
                 <Button
                   className="px-4 bg-background border"

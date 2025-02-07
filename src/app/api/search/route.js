@@ -1,4 +1,4 @@
-"use server"; // First version on server search ? N\Do not use
+"use server";
 
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prismadb";

@@ -21,7 +21,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { ModeToggle } from "./modeToggle";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { SocialIcons } from "./SocialIcons";
-import { SearchModal } from "./SearchModal";
+import SearchModalPage from "@/app/(main)/@modal/(.)search/page";
 
 export function MobileMenu({ links }) {
   const isDesktop = useMediaQuery("(max-width: 1280px)");
@@ -57,7 +57,7 @@ export function MobileMenu({ links }) {
                   <span className="text-zinc-400">Ctrl + G</span>
                 </Button>
               </Link> */}
-              <SearchModal />
+              <SearchModalPage />
             </DrawerClose>
           </div>
           <div className="p-4">

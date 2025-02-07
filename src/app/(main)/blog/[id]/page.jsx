@@ -20,7 +20,6 @@ export default async function Post({ params }) {
     .split(".")
     .reverse()
     .join(".");
-  // ERROR!!!!!!
 
   return (
     <div className="grid grid-cols lg:grid-cols-[5fr,1fr] w-[80%] mx-auto gap-8">

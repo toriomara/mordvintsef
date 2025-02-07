@@ -19,7 +19,7 @@ function AboutPage() {
       </TypographyH1>
       <MissionSection />
       <Testimonials />
-      {/* <CertificateSection /> */}
+      <CertificateSection />
       <CertificateSectionCarousel />
       <HarantSection />
     </div>
@@ -27,7 +27,3 @@ function AboutPage() {
 }
 
 export default AboutPage;
-
-{
-  /* 2.3. К обязательной информации, подлежащей размещению на персональном сайте адвоката, относятся: фамилия, имя, отчество адвоката; наименование адвокатского образования, в котором он состоит; реестровый номер адвоката; наименование адвокатской палаты, членом которой является адвокат; адрес, телефон и другая контактная информация. */
-}
