@@ -9,15 +9,15 @@ import { MobileMenu } from "./MobileMenu";
 import { PhoneBlock } from "./PhoneBlock";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import theme from "tailwindcss/defaultTheme";
 import { dark, light } from "@clerk/themes";
 import { FiUser } from "react-icons/fi";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import SearchModalPage from "@/app/(main)/@modal/(.)search/page";
 
 export const Header = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const checkActivePath = useActivePath();
   const [isScrolled, setIsScrolled] = useState(false);
 
