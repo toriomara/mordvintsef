@@ -3,10 +3,11 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { SearchedPosts } from "@/components/SearchedPosts";
 import { Search } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { useDebounce } from "use-debounce";
 import { TypographyH2 } from "@/components/ui/TypographyH2";
+import { Loader } from "@/components/Loader";
 
 const SearchPage = () => {
   const [text, setText] = useState("");
@@ -43,7 +44,9 @@ const SearchPage = () => {
         />
       </div>
       <TypographyH2>Результаты поиска</TypographyH2>
-      <SearchedPosts query={query} />
+      <Suspense fallback={<Loader />}>
+        <SearchedPosts query={query} />
+      </Suspense>
     </div>
   );
 };

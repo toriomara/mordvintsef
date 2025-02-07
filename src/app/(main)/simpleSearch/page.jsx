@@ -1,7 +1,9 @@
 "use server";
 
+import { Loader } from "@/components/Loader";
 import { Search } from "@/components/Search";
 import { SearchedPosts } from "@/components/SearchedPosts";
+import { Suspense } from "react";
 
 const SimpleSearch = async (props) => {
   const searchParams = await props.searchParams;
@@ -12,7 +14,9 @@ const SimpleSearch = async (props) => {
       <h2 className="flex justify-center text-xl">Поиск</h2>
       <Search />
       <h2>Simple Search</h2>
-      <SearchedPosts query={query} />
+      <Suspense fallback={<Loader />}>
+        <SearchedPosts query={query} />
+      </Suspense>
     </div>
   );
 };

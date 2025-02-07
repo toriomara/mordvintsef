@@ -82,9 +82,9 @@ export const Header = () => {
             <div className="hidden md:flex gap-2">
               {/* <SearchModal /> */}
               <SearchModalPage />
-              <Button variant="outline" onClick={() => router.push("/search")}>
+              {/* <Button variant="outline" onClick={() => router.push("/search")}>
                 Search
-              </Button>
+              </Button> */}
               {/* <Link href="/search">
                 <Button
                   className="px-4 bg-background border"
