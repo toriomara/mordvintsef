@@ -10,14 +10,14 @@ const SimpleSearch = async (props) => {
   const query = searchParams?.query || "";
 
   return (
-    <div className="w-[80%] mx-auto my-10">
-      <h2 className="flex justify-center text-xl">Поиск</h2>
-      <Search />
-      <h2>Simple Search</h2>
-      <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader />}>
+      <div className="w-[80%] mx-auto my-10">
+        <h2 className="flex justify-center text-xl">Поиск</h2>
+        <Search />
+        <h2>Simple Search</h2>
         <SearchedPosts query={query} />
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 };
 

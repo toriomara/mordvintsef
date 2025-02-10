@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import { TypographyH2 } from "./ui/TypographyH2";
 
 const diplomas = [
   {
@@ -49,6 +50,9 @@ const diplomas = [
 export const CertificateSectionCarousel = () => {
   return (
     <section className="my-14">
+      <TypographyH2 position={"flex justify-center my-8"}>
+        Почетные грамоты
+      </TypographyH2>
       <Carousel
         opts={{
           align: "start",

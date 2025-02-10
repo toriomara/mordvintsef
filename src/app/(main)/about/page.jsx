@@ -1,4 +1,3 @@
-import { CertificateSection } from "@/components/CertificateSection";
 import { CertificateSectionCarousel } from "@/components/CertificateSectionCarousel";
 import { HarantSection } from "@/components/HarantSection";
 import { MissionSection } from "@/components/MissionSection";
@@ -19,7 +18,6 @@ function AboutPage() {
       </TypographyH1>
       <MissionSection />
       <Testimonials />
-      <CertificateSection />
       <CertificateSectionCarousel />
       <HarantSection />
     </div>

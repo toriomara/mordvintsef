@@ -32,22 +32,22 @@ const SearchPage = () => {
   };
 
   return (
-    <div>
-      <div className="relative flex h-14 text-3xl text-primary items-center border-b">
-        <Search className="absolute w-4 h-9 left-4" />
-        <Input
-          className="w-[92%] h-[100%] text-xl md:text-lg p-0 pl-10 bg-card border-none focus-visible:ring-0"
-          placeholder="Поиск..."
-          type="search"
-          onChange={handleInput}
-          defaultValue={searchParams.get("query")?.toString()}
-        />
-      </div>
-      <TypographyH2>Результаты поиска</TypographyH2>
-      <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader />}>
+      <div>
+        <div className="relative flex h-14 text-3xl text-primary items-center border-b">
+          <Search className="absolute w-4 h-9 left-4" />
+          <Input
+            className="w-[92%] h-[100%] text-xl md:text-lg p-0 pl-10 bg-card border-none focus-visible:ring-0"
+            placeholder="Поиск..."
+            type="search"
+            onChange={handleInput}
+            defaultValue={searchParams.get("query")?.toString()}
+          />
+        </div>
+        <TypographyH2>Результаты поиска</TypographyH2>
         <SearchedPosts query={query} />
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 };
 
