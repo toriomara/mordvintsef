@@ -29,20 +29,20 @@ export function Search({ placeholder }) {
   };
 
   return (
-    <Suspense fallback={<Loader />}>
-      <div className="relative flex justify-center space-y-4">
-        <label htmlFor="search" className="sr-only">
-          Search
-        </label>
-        <AiOutlineSearch className="relative self-center left-8 h-5 w-5 text-gray-500 dark:text-zinc-100 peer-focus:text-zinc-500" />
-        <Input
-          className="peer block w-1/2 rounded-md border py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-          placeholder={placeholder}
-          type="search"
-          onChange={handleInput}
-          defaultValue={searchParams.get("query")?.toString()}
-        />
-      </div>
-    </Suspense>
+    // <Suspense fallback={<Loader />}>
+    <div className="relative flex justify-center space-y-4">
+      <label htmlFor="search" className="sr-only">
+        Search
+      </label>
+      <AiOutlineSearch className="relative self-center left-8 h-5 w-5 text-gray-500 dark:text-zinc-100 peer-focus:text-zinc-500" />
+      <Input
+        className="peer block w-1/2 rounded-md border py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+        placeholder={placeholder}
+        type="search"
+        onChange={handleInput}
+        defaultValue={searchParams.get("query")?.toString()}
+      />
+    </div>
+    // </Suspense>
   );
 }
