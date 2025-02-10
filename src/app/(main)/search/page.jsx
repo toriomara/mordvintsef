@@ -2,11 +2,11 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { SearchedPosts } from "@/components/SearchedPosts";
-import { Search } from "lucide-react";
 import { Suspense, useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { useDebounce } from "use-debounce";
 import { TypographyH2 } from "@/components/ui/TypographyH2";
+import { AiOutlineSearch } from "react-icons/ai";
 import { Loader } from "@/components/Loader";
 
 const SearchPage = () => {
@@ -35,7 +35,10 @@ const SearchPage = () => {
     <Suspense fallback={<Loader />}>
       <div>
         <div className="relative flex h-14 text-3xl text-primary items-center border-b">
-          <Search className="absolute w-4 h-9 left-4" />
+          <label htmlFor="search" className="sr-only">
+            Search
+          </label>
+          <AiOutlineSearch className="relative self-center left-8 h-5 w-5 text-zinc-500 dark:text-zinc-100 peer-focus:text-zinc-500" />
           <Input
             className="w-[92%] h-[100%] text-xl md:text-lg p-0 pl-10 bg-card border-none focus-visible:ring-0"
             placeholder="Поиск..."
