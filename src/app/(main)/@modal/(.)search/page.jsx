@@ -55,9 +55,9 @@ function SearchModalPage() {
           <VisuallyHidden>Поиск</VisuallyHidden>
         </DialogTitle>
         <Command>
-          {/* <Suspense fallback={<Loader />}> */}
+          <Suspense fallback={<Loader />}>
             <SearchPage />
-          {/* </Suspense> */}
+          </Suspense>
         </Command>
       </DialogContent>
     </Dialog>
