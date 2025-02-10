@@ -33,7 +33,7 @@ function SearchModalPage() {
   }, []);
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger
           onClick={() => setOpen(true)}
@@ -56,13 +56,11 @@ function SearchModalPage() {
             <VisuallyHidden>Поиск</VisuallyHidden>
           </DialogTitle>
           <Command>
-            <Suspense fallback={<Loader />}>
-              <SearchPage />
-            </Suspense>
+            <SearchPage />
           </Command>
         </DialogContent>
       </Dialog>
-    </>
+    </Suspense>
   );
 }
 
