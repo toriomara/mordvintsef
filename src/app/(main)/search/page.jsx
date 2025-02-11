@@ -47,9 +47,7 @@ const SearchPage = () => {
         />
       </div>
       <TypographyH2>Результаты поиска</TypographyH2>
-      {/* <Suspense fallback={<Loader />}> */}
-        <SearchedPosts query={query} />
-      {/* </Suspense> */}
+      <SearchedPosts query={query} />
     </div>
   );
 };
