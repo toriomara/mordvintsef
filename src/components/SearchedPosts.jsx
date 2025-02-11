@@ -1,9 +1,9 @@
 "use client";
 
-import { getAllPosts } from "@/lib/data";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
+import { getAllPosts } from "@/lib/data";
 
 export const SearchedPosts = ({ query }) => {
   const [posts, setPosts] = useState([]);
