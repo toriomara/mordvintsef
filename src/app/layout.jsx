@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
+import { Cookie } from "@/components/Cookie";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,6 +35,7 @@ export default function RootLayout(props) {
             disableTransitionOnChange
           >
             <Toaster />
+            <Cookie />
             {props.children}
           </ThemeProvider>
         </body>

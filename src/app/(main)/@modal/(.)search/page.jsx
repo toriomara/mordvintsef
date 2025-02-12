@@ -13,6 +13,7 @@ import { Search, X } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import SearchPage from "../../search/page";
 import { Loader } from "@/components/Loader";
+import { SearchComponent } from "@/components/SearchComponent";
 
 function SearchModalPage() {
   const [open, setOpen] = useState(false);
@@ -56,7 +57,8 @@ function SearchModalPage() {
         </DialogTitle>
         <Command>
           <Suspense fallback={<Loader />}>
-            <SearchPage />
+            {/* <SearchPage /> */}
+            <SearchComponent />
           </Suspense>
         </Command>
       </DialogContent>
