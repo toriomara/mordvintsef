@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { Command } from "cmdk";
 import {
   Dialog,
@@ -11,9 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Search, X } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Loader } from "@/components/Loader";
 import SearchPage from "../../search/page";
-import ErrorBoundary from "@/components/ErrorBoundary";
 
 function SearchModalPage() {
   const [open, setOpen] = useState(false);
@@ -56,11 +54,7 @@ function SearchModalPage() {
           <VisuallyHidden>Поиск</VisuallyHidden>
         </DialogTitle>
         <Command>
-          <Suspense fallback={<Loader />}>
-            <ErrorBoundary>
-              <SearchPage />
-            </ErrorBoundary>
-          </Suspense>
+          <SearchPage />
         </Command>
       </DialogContent>
     </Dialog>
