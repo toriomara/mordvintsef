@@ -32,7 +32,7 @@ const SearchPage = () => {
   };
 
   return (
-    <Suspense fallback={<Loader />}>
+    <>
       <div className="relative flex h-14 text-3xl text-primary items-center border-b">
         <label htmlFor="search" className="sr-only">
           Search
@@ -48,7 +48,7 @@ const SearchPage = () => {
       </div>
       <TypographyH2>Результаты поиска</TypographyH2>
       <SearchedPosts query={query} />
-    </Suspense>
+    </>
   );
 };
 
