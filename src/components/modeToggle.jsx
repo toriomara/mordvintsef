@@ -12,7 +12,7 @@ import {
 import { IoMoonOutline } from "react-icons/io5";
 import { Sun } from "lucide-react";
 
-export function ModeToggle() {
+export const ModeToggle = () => {
   const { theme, setTheme } = useTheme();
 
   // For devs only. Remove in prod
@@ -43,7 +43,7 @@ export function ModeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Светлая
+          СветлаЯ
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           Тёмная
@@ -54,4 +54,4 @@ export function ModeToggle() {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};
