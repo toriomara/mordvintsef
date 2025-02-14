@@ -44,7 +44,7 @@ export default async function Post({ params }) {
             <div className="relative col-span-2 sm:col-span-1 w-full h-80">
               <Image
                 className="top-0 left-0 object-cover rounded-md"
-                src={post.image}
+                src={post.image || '/images/placeholderImage.svg'}
                 alt={post.title}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 fill
