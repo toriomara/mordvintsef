@@ -1,7 +1,6 @@
 "use client";
 
-import { Sun } from "lucide-react";
-import { IoMoonOutline } from "react-icons/io5";
+import { useCallback, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,7 +9,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useCallback, useEffect } from "react";
+import { IoMoonOutline } from "react-icons/io5";
+import { Sun } from "lucide-react";
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
