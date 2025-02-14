@@ -13,14 +13,6 @@ export default async function Post({ params }) {
   const post = await getPostById(newParams.id);
   const text = await post.text.split("<>");
 
-  // Remake. Did't folow SOLID(DRY!). Parent component have {date} yet
-  const date = post.createdAt
-    .slice(0, 10)
-    .replace(/-/g, ".")
-    .split(".")
-    .reverse()
-    .join(".");
-
   return (
     <div className="grid grid-cols lg:grid-cols-[5fr,1fr] w-[80%] mx-auto gap-8">
       <div>
@@ -35,7 +27,9 @@ export default async function Post({ params }) {
               <span className="text-primary self-center">{post.category}</span>
               <span className="text-xl">{post.author}</span>
               <span className="leading-snug font-semibold text-lg text-zinc-600 dark:text-zinc-400">
-                {date}
+                {new Date(post.createdAt)
+                  .toLocaleDateString("ru-RU")
+                  .replace(/\//g, ".")}
               </span>
             </div>
             <div className="hidden sm:grid col-span-1 sm:self-start">
@@ -43,8 +37,8 @@ export default async function Post({ params }) {
             </div>
             <div className="relative col-span-2 sm:col-span-1 w-full h-80">
               <Image
-                className="top-0 left-0 object-cover rounded-md"
-                src={post.image || '/images/placeholderImage.svg'}
+                className="top-0 left-0 object-cover rounded-lg border border-border shadow-lg"
+                src={post.image || "/images/placeholderImage.svg"}
                 alt={post.title}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 fill
