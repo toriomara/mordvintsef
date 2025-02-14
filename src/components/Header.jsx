@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ModeToggle } from "./ModeToggle";
+import { ModeToggle } from "./ui/mode-toggle";
 import { Logo } from "./Logo";
 import { navLinks } from "@/constants";
 import { useActivePath } from "@/hooks/useActivePath";
