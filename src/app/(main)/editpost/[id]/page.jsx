@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState, useMemo } from "react";
+import React, { use, useEffect, useState, useMemo } from "react";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -26,6 +26,7 @@ import { updatePost } from "@/lib/actions";
 import { useRouter } from "next/navigation";
 import Tiptap from "@/components/Tiptap";
 import { TypographyH1 } from "@/components/ui/TypographyH1";
+import { Loader } from "@/components/Loader";
 
 const formSchema = z.object({
   title: z.string().trim().min(5, {
@@ -44,26 +45,16 @@ const formSchema = z.object({
   }),
 });
 
-// const initialPost = {
-//   title: "",
-//   description: "",
-//   image: "",
-//   text: "",
-//   author: "",
-//   category: "",
-// };
-
-export default function EditPostPage(props) {
-  const params1 = use(props.params);
-  const params = params1.id;
+export default function EditPostPage({ params }) {
   const router = useRouter();
-  const [post, setPost] = useState('');
+  const [post, setPost] = useState("");
+  const { id } = React.use(params);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_URL}/api/posts/${params}`
+          `${process.env.NEXT_PUBLIC_URL}/api/posts/${id}`
         );
         const data = await res.json();
         console.log("1.DATA ==>>>", data);
@@ -75,35 +66,51 @@ export default function EditPostPage(props) {
       }
     };
     fetchData();
-  }, [params]);
+  }, [id]);
 
   console.log("2.NEW POST ==>>>", post);
   console.log("3.POST ==>>>", post.title);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
-    values: {
-      title: post.title,
-      description: post.description,
-      author: post.author,
-      image: post.image,
-      category: post.category,
-      text: post.text,
+    defaultValues: {
+      title: "",
+      description: "",
+      author: "",
+      category: "",
+      image: "",
+      text: "",
     },
     post,
   });
 
+  useEffect(() => {
+    if (post) {
+      form.reset(post); // Reset form with fetched post data
+    }
+  }, [post, form]);
+
   const { formState } = form;
   const { isDirty, isValid, error } = formState;
 
-  const onSubmit = (post) => {
-    updatePost(post, params);
-    router.push(`/blog/${params}`);
+  const onSubmit = async (data) => {
+    try {
+      await updatePost(data, id);
+      router.push(`/blog/${id}`);
+    } catch (error) {
+      console.error("Ошибка при обновлении поста", error);
+    }
   };
+
+  if (!post) {
+    return <Loader />;
+  }
 
   return (
     <div className="w-[80%] mx-auto">
-      <TypographyH1 position={'flex justify-center py-4'}>Редактирование поста</TypographyH1>
+      <TypographyH1 position={"flex justify-center py-4"}>
+        Редактирование поста
+      </TypographyH1>
       <div className="flex justify-center">
         <Form {...form}>
           <form
@@ -208,13 +215,19 @@ export default function EditPostPage(props) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Текст</FormLabel>
-                  <Tiptap {...field} content={post.text} />
+                  {/* <FormControl> */}
+                    <Tiptap
+                      {...field}
+                      onChange={(content) => field.onChange(content)}
+                      content={field}
+                    />
+                  {/* </FormControl> */}
                   <FormDescription>Добавьте текст поста</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={!isValid || !isDirty}>
+            <Button type="submit" disabled={!isValid || !isDirty || error}>
               Сохранить
             </Button>
           </form>
@@ -223,7 +236,3 @@ export default function EditPostPage(props) {
     </div>
   );
 }
-
-// netsh winsock reset
-// netsh int ip reset
-// reboot
