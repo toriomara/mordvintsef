@@ -13,13 +13,6 @@ import {
 } from "@/components/ui/card";
 
 export const PostCard = ({ className, post, ...props }) => {
-  const date = post.createdAt
-    .slice(0, 10)
-    .replace(/-/g, ".")
-    .split(".")
-    .reverse()
-    .join(".");
-
   return (
     <Card
       key={post.id}
@@ -33,8 +26,7 @@ export const PostCard = ({ className, post, ...props }) => {
         <Link href={`/blog/${post.id}`}>
           <Image
             className="object-cover rounded-t-md md:rounded-l-md md:rounded-r-none hover:grayscale-[0.5] transform hover:scale-y-105 origin-top hover:md:scale-x-105 md:origin-left transition-all delay-150 duration-500"
-            src={post.image}
-            //   src={post.image || "/placeholder.svg"}
+            src={post.image || "/images/placeholderImage.svg"}
             alt={post.title}
             priority
             fill
@@ -46,7 +38,9 @@ export const PostCard = ({ className, post, ...props }) => {
         <div className="grid gap-3 sm:flex justify-between">
           <Badge>{post.category}</Badge>
           <span className="flex sm:justify-end order-first sm:order-last font-light text-sm">
-            {date}
+            {new Date(post.createdAt)
+              .toLocaleDateString("ru-RU")
+              .replace(/\//g, ".")}
           </span>
         </div>
         <CardTitle className="text-2xl leading-normal scroll-m-20 md:text-2xl">

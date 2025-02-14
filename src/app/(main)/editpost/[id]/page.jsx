@@ -25,6 +25,7 @@ import {
 import { updatePost } from "@/lib/actions";
 import { useRouter } from "next/navigation";
 import Tiptap from "@/components/Tiptap";
+import { TypographyH1 } from "@/components/ui/TypographyH1";
 
 const formSchema = z.object({
   title: z.string().trim().min(5, {
@@ -101,8 +102,8 @@ export default function EditPostPage(props) {
   };
 
   return (
-    <div className="wrapper-main">
-      <h1 className="title-section">Редактировать пост</h1>
+    <div className="w-[80%] mx-auto">
+      <TypographyH1 position={'flex justify-center py-4'}>Редактирование поста</TypographyH1>
       <div className="flex justify-center">
         <Form {...form}>
           <form

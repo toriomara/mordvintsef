@@ -82,7 +82,6 @@ export const SearchedPosts = ({ query, open, setOpen }) => {
                     <span className="text-xs font-light">
                       {post.description}
                     </span>
-                    {/* <p>{post.text}</p> */}
                   </div>
                 </div>
               </Link>

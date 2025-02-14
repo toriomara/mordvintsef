@@ -198,7 +198,6 @@
 
 // export default Header;
 
-
 "use client";
 
 import Link from "next/link";
@@ -214,11 +213,9 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import theme from "tailwindcss/defaultTheme";
 import { dark, light } from "@clerk/themes";
 import { FiUser } from "react-icons/fi";
-// import { useRouter } from "next/navigation";
 import SearchModalPage from "@/app/(main)/@modal/(.)search/page";
 
 export const Header = () => {
-  // const router = useRouter();
   const checkActivePath = useActivePath();
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -281,21 +278,7 @@ export const Header = () => {
               <PhoneBlock />
             </div>
             <div className="hidden md:flex gap-2">
-              {/* <SearchModal /> */}
               <SearchModalPage />
-              {/* <Button variant="outline" onClick={() => router.push("/search")}>
-                Search
-              </Button> */}
-              {/* <Link href="/search">
-                <Button
-                  className="px-4 bg-background border"
-                  variant="secondary"
-                  // onClick={() => setOpen(true)}
-                >
-                  <AiOutlineSearch className="fill-zinc-500 mr-2 h-[20px] w-[20px]" />
-                  <span className="text-zinc-400">Ctrl K</span>
-                </Button>
-              </Link> */}
             </div>
             <div className="hidden md:flex">
               <ModeToggle />

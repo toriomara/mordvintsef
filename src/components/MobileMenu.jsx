@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { NavLink } from "./NavLink";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,7 +16,6 @@ import {
 import { PhoneBlock } from "./PhoneBlock";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { AiOutlineSearch } from "react-icons/ai";
 import { ModeToggle } from "./ModeToggle";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { SocialIcons } from "./SocialIcons";
@@ -48,15 +46,6 @@ export function MobileMenu({ links }) {
             <DrawerTitle className="text-center">Поиск</DrawerTitle>
             <DrawerDescription></DrawerDescription>
             <DrawerClose asChild>
-              {/* <Link href="/search">
-                <Button
-                  className="px-4 bg-background border"
-                  variant="secondary"
-                >
-                  <AiOutlineSearch className="fill-zinc-500 mr-2 h-[20px] w-[20px]" />
-                  <span className="text-zinc-400">Ctrl + G</span>
-                </Button>
-              </Link> */}
               <SearchModalPage />
             </DrawerClose>
           </div>
