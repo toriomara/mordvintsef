@@ -8,7 +8,7 @@ import { useDebounce } from "use-debounce";
 import { TypographyH2 } from "@/components/ui/TypographyH2";
 import { AiOutlineSearch } from "react-icons/ai";
 
-export const SearchComponent = () => {
+export const SearchComponent = ({open, setOpen}) => {
   const [text, setText] = useState("");
   const { replace } = useRouter();
 
@@ -45,8 +45,7 @@ export const SearchComponent = () => {
           defaultValue={searchParams.get("query")?.toString()}
         />
       </div>
-      <TypographyH2>Результаты поиска</TypographyH2>
-      <SearchedPosts query={query} />
+      <SearchedPosts query={query} open={open} setOpen={setOpen}/>
     </>
   );
 };

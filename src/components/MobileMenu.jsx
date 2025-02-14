@@ -18,7 +18,7 @@ import { PhoneBlock } from "./PhoneBlock";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { AiOutlineSearch } from "react-icons/ai";
-import { ModeToggle } from "./modeToggle";
+import { ModeToggle } from "./ModeToggle";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { SocialIcons } from "./SocialIcons";
 import SearchModalPage from "@/app/(main)/@modal/(.)search/page";

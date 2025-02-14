@@ -91,7 +91,7 @@ export const HeroSection = () => {
           />
         </div>
         <div className="flex md:items-center lg:order-last md:order-[3]">
-          <span className="text-xl leading-6 xs:text-2xl md:text-3xl lg:text-5xl font-extrabold text-black lg:text-white dark:text-zinc-300 drop-shadow-lg">
+          <span className="text-xl leading-6 xs:text-2xl md:text-3xl lg:text-5xl font-extrabold text-black lg:text-white drop-shadow-xl dark:text-zinc-300 text-shadow">
             Мой опыт и знания — слагаемые вашего успеха
           </span>
         </div>
