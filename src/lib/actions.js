@@ -22,26 +22,18 @@ export async function createPost(post) {
   }
 }
 
-export async function updatePost(post, params) {
-  post.id = params.id;
+export async function updatePost(post, id) {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/api/posts/${post.id}`,
-      {
-        method: "PATCH",
-        body: JSON.stringify(post),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    revalidatePath(`/blog/${params.id}`);
-    const data = await res.json();
-    return data;
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/posts/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(post),
+    });
   } catch (error) {
-    return {
-      message: "Failed To Update Post",
-    };
+    console.error("Ошибка загрузки данных:", error);
+    throw new Error("Ошибка обновления поста");
   }
 }
 

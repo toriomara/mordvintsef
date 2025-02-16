@@ -19,7 +19,7 @@ export const GET = async (request, { params }) => {
     return NextResponse.json(post);
   } catch (error) {
     return NextResponse.json(
-      { message: "Ошибка загрузки поста111", error },
+      { message: "Ошибка загрузки поста", error },
       { status: 500 }
     );
   }
@@ -32,7 +32,7 @@ export const PATCH = async (request, props) => {
     const body = await request.json();
     const { title, description, image, text, author, category } = body;
 
-    const updatePost = await prisma.post.update({
+    const updatedPost = await prisma.post.update({
       where: { id },
       data: {
         title,
@@ -44,14 +44,14 @@ export const PATCH = async (request, props) => {
       },
     });
 
-    if (!updatePost) {
+    if (!updatedPost) {
       return NextResponse.json(
         { message: "Пост не обновлён", error },
         { status: 404 }
       );
     }
 
-    return NextResponse.json(updatePost);
+    return NextResponse.json(updatedPost);
   } catch (error) {
     return NextResponse.json(
       { message: "Произошла ошибка при обновлении поста", error },

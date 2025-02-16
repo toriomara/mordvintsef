@@ -59,7 +59,7 @@ export default function Tiptap({ content, onChange }) {
   return (
     <div className="flex flex-col justify-stretch min-h-fit">
       <TiptapToolbar editor={editor} content={content} />
-      <EditorContent editor={editor} style={{ whiteSpace: "pre-line" }} />
+      <EditorContent editor={editor} content={content} style={{ whiteSpace: "pre-line" }} />
     </div>
   );
 }

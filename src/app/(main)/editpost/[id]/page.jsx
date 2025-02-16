@@ -1,6 +1,6 @@
 "use client";
 
-import React, { use, useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -68,9 +68,6 @@ export default function EditPostPage({ params }) {
     fetchData();
   }, [id]);
 
-  console.log("2.NEW POST ==>>>", post);
-  console.log("3.POST ==>>>", post.title);
-
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -86,16 +83,16 @@ export default function EditPostPage({ params }) {
 
   useEffect(() => {
     if (post) {
-      form.reset(post); // Reset form with fetched post data
+      form.reset(post);
     }
   }, [post, form]);
 
   const { formState } = form;
   const { isDirty, isValid, error } = formState;
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (formData) => {
     try {
-      await updatePost(data, id);
+      await updatePost(formData, id);
       router.push(`/blog/${id}`);
     } catch (error) {
       console.error("Ошибка при обновлении поста", error);
@@ -215,13 +212,13 @@ export default function EditPostPage({ params }) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Текст</FormLabel>
-                  {/* <FormControl> */}
+                  <FormControl>
                     <Tiptap
                       {...field}
                       onChange={(content) => field.onChange(content)}
-                      content={field}
+                      content={post.text}
                     />
-                  {/* </FormControl> */}
+                  </FormControl>
                   <FormDescription>Добавьте текст поста</FormDescription>
                   <FormMessage />
                 </FormItem>
