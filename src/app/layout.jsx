@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
-import { Cookie } from "@/components/Cookie";
+import { CookieConsent } from "@/components/Cookie";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,8 +15,8 @@ export const metadata = {
     template: "%s | Адвокат Р.Ф. Мордвинцев",
     default: "Адвокат Р.Ф. Мордвинцев",
   },
-  description: "Description",
-  metadataBase: new URL("https://mordvintsef.vercel.app"),
+  description: "Сайт адвоката Романа Фёдоровича Мордвинцева",
+  metadataBase: new URL("https://mordvintsef.ru"),
 };
 
 export default function RootLayout(props) {
@@ -25,6 +25,21 @@ export default function RootLayout(props) {
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
     >
       <html lang="en" suppressHydrationWarning>
+        <head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+          <link
+            rel="icon"
+            href="/favicon.ico"
+            type="image/<generated>"
+            sizes="<generated>"
+          />
+          <link
+            rel="apple-touch-icon"
+            href="/apple-icon?<generated>"
+            type="image/<generated>"
+            sizes="<generated>"
+          />
+        </head>
         <body
           className={`${inter.variable} antialiased flex flex-col h-screen w-full`}
         >
@@ -35,7 +50,7 @@ export default function RootLayout(props) {
             disableTransitionOnChange
           >
             <Toaster />
-            <Cookie />
+            <CookieConsent />
             {props.children}
           </ThemeProvider>
         </body>

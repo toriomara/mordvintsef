@@ -4,8 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebounce } from "use-debounce";
 import { Input } from "./ui/input";
-import { Suspense, useEffect, useState } from "react";
-import { Loader } from "./Loader";
+import { useEffect, useState } from "react";
 
 export function Search() {
   const [text, setText] = useState("");

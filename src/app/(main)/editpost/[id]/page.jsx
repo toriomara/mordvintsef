@@ -57,7 +57,6 @@ export default function EditPostPage({ params }) {
           `${process.env.NEXT_PUBLIC_URL}/api/posts/${id}`
         );
         const data = await res.json();
-        console.log("1.DATA ==>>>", data);
         setPost(data);
       } catch (error) {
         throw new Error("Невозможно отобразить пост Front");

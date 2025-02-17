@@ -8,7 +8,7 @@ import { useDebounce } from "use-debounce";
 import { TypographyH2 } from "@/components/ui/TypographyH2";
 import { AiOutlineSearch } from "react-icons/ai";
 
-export const SearchComponent = ({open, setOpen}) => {
+export const SearchComponent = ({ open, setOpen, closeDrawer }) => {
   const [text, setText] = useState("");
   const { replace } = useRouter();
 
@@ -31,7 +31,7 @@ export const SearchComponent = ({open, setOpen}) => {
   };
 
   return (
-    <>
+    <div className="max-h-fit">
       <div className="relative flex h-14 text-3xl text-primary items-center border-b">
         <label htmlFor="search" className="sr-only">
           Search
@@ -45,7 +45,14 @@ export const SearchComponent = ({open, setOpen}) => {
           defaultValue={searchParams.get("query")?.toString()}
         />
       </div>
-      <SearchedPosts query={query} open={open} setOpen={setOpen}/>
-    </>
+      <div className="h-96 overflow-y-auto">
+        <SearchedPosts
+          query={query}
+          open={open}
+          setOpen={setOpen}
+          closeDrawer={closeDrawer}
+        />
+      </div>
+    </div>
   );
 };

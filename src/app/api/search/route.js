@@ -6,7 +6,6 @@ import prisma from "@/lib/prismadb";
 export const GET = async (req, res) => {
   try {
     const q = req.nextUrl.searchParams.get("q");
-    console.log("Search GET ===>", q);
 
     if (typeof q !== "string") {
       return NextResponse.json(

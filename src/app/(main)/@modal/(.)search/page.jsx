@@ -15,7 +15,7 @@ import SearchPage from "../../search/page";
 import { Loader } from "@/components/Loader";
 import { SearchComponent } from "@/components/SearchComponent";
 
-function SearchModalPage() {
+function SearchModalPage({ closeDrawer }) {
   const [open, setOpen] = useState(false);
 
   // ⌘ + K or Ctrl + K to open the modal
@@ -56,7 +56,11 @@ function SearchModalPage() {
           <VisuallyHidden>Поиск</VisuallyHidden>
         </DialogTitle>
         <Command>
-          <SearchComponent open={open} setOpen={setOpen} />
+          <SearchComponent
+            open={open}
+            setOpen={setOpen}
+            closeDrawer={closeDrawer}
+          />
         </Command>
       </DialogContent>
     </Dialog>

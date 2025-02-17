@@ -4,38 +4,48 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export const Cookie = () => {
-  const [showCookies, setShowCookies] = useState(false);
+export const CookieConsent = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const hasAcceptedCookies = localStorage.getItem("cookiesAccepted");
-    if (!hasAcceptedCookies) {
-      setShowCookies(true);
+    const consent = localStorage.getItem("cookieConsent");
+    if (!consent) {
+      setIsVisible(true);
     }
   }, []);
 
-  const handleAcceptCookies = () => {
-    localStorage.setItem("cookiesAccepted", "true");
-    setShowCookies(false);
+  const handleAccept = () => {
+    localStorage.setItem("cookieConsent", "accepted");
+    setIsVisible(false);
   };
 
+  const handleReject = () => {
+    localStorage.setItem("cookieConsent", "rejected");
+    setIsVisible(false);
+  };
+
+  if (!isVisible) return null;
+
   return (
-    <div>
-      {showCookies && (
-        <div className="fixed bottom-0 left-0 right-0 border-t border-border bg-primary dark:bg-primary-foreground text-white p-4 flex justify-between items-center z-20">
-          <p className="text-sm">
-            Пользуясь нашим сайтом, вы соглашаетесь с тем, что мы используем{' '}
-            <Link className='link' href="#">cookies</Link>
-          </p>
-          <Button
-            className="ml-6 bg-primary dark:bg-transparent dark:border-zinc-300"
-            variant="outline"
-            onClick={handleAcceptCookies}
-          >
-            Принять
-          </Button>
-        </div>
-      )}
+    <div className="fixed w-[50%] mx-auto bottom-4 left-4 right-4 p-4 bg-zinc-900 dark:bg-white dark:text-black text-white rounded-lg shadow-md flex flex-col md:flex-row items-center justify-between gap-3 z-30">
+      <p className="text-sm">
+        Этот сайт использует куки для более удобного использования. Подробнее
+        можно прочитать{" "}
+        <Link href="/terms" className="underline text-primary ml-1">
+          здесь
+        </Link>
+      </p>
+      <div className="flex gap-2">
+        <Button
+          onClick={handleAccept}
+          className="bg-green-500 hover:bg-green-600"
+        >
+          Принять
+        </Button>
+        <Button onClick={handleReject} className="bg-red-500 hover:bg-red-600">
+          Отклонить
+        </Button>
+      </div>
     </div>
   );
-};
+}

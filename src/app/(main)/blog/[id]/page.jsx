@@ -13,8 +13,6 @@ export default async function Post({ params }) {
   const post = await getPostById(newParams.id);
   const text = await post.text.split("<>");
 
-  console.log("POST PAGE ===>>", post);
-
   return (
     <div className="grid grid-cols lg:grid-cols-[5fr,1fr] w-[80%] mx-auto gap-8">
       <div>

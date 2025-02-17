@@ -4,7 +4,6 @@ import { TypographyH3 } from "./ui/TypographyH3";
 
 export async function PostList({ className }) {
   const posts = await getAllPosts();
-  console.log("posts ===>>", posts);
 
   return (
     <div className="grid grid-cols xl:grid-rows 3xl:grid-cols-2 gap-6 md:gap-y-8 md:gap-x-6">

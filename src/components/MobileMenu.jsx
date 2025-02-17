@@ -23,10 +23,11 @@ import SearchModalPage from "@/app/(main)/@modal/(.)search/page";
 
 export function MobileMenu({ links }) {
   const isDesktop = useMediaQuery("(max-width: 1280px)");
+  const [open, setOpen] = React.useState(false);
 
   return (
     isDesktop && (
-      <Drawer direction="right">
+      <Drawer direction="right" open={open} onOpenChange={setOpen}>
         <DrawerTrigger asChild>
           <Button variant="ghost" size="icon">
             <FaBars size={20} />
@@ -46,7 +47,7 @@ export function MobileMenu({ links }) {
             <DrawerTitle className="text-center">Поиск</DrawerTitle>
             <DrawerDescription></DrawerDescription>
             <DrawerClose asChild>
-              <SearchModalPage />
+              <SearchModalPage closeDrawer={() => setOpen(!open)} />
             </DrawerClose>
           </div>
           <div className="p-4">
