@@ -65,4 +65,3 @@ export const PostCard = ({ className, post, ...props }) => {
     </Card>
   );
 };
-

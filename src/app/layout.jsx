@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
-import { CookieConsent } from "@/components/Cookie";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
