@@ -13,15 +13,15 @@ import { usePathname } from "next/navigation";
 import { Fragment } from "react";
 
 const translations = {
-    blog: "Блог",
-    about: "Об адвокате",
-    contacts: "Контакты",
-    services: "Услуги",
-    addpost: "Добавить пост",
-    editpost: "Редактировать пост",
-    privacy: "Политика обработки данных",
-    agreement: "Согласие на обработку персональных данных",
-  };
+  blog: "Блог",
+  about: "Об адвокате",
+  contacts: "Контакты",
+  services: "Услуги",
+  addpost: "Добавить пост",
+  editpost: "Редактировать пост",
+  privacy: "Политика обработки данных",
+  agreement: "Согласие на обработку персональных данных",
+};
 
 export function BreadcrumbHeader() {
   const paths = usePathname();
@@ -41,7 +41,9 @@ export function BreadcrumbHeader() {
           {pathNames.map((link, index) => {
             const href = `/${pathNames.slice(0, index + 1).join("/")}`;
             // const linkName = link[0].toUpperCase() + link.slice(1, link.length);
-            const linkName = translations[link] || link[0].toUpperCase() + link.slice(1);
+            const linkName =
+              translations[link] ||
+              link[0].toUpperCase() + link.slice(1).split("-").join(" ");
             const isLastPath = pathNames.length === index + 1;
 
             return (

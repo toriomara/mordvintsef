@@ -8,7 +8,9 @@ export async function PostList({ className }) {
   return (
     <div className="grid grid-cols xl:grid-rows 3xl:grid-cols-2 gap-6 md:gap-y-8 md:gap-x-6">
       {posts.length === 0 ? (
-        <TypographyH3>Постов нет</TypographyH3>
+        <div className="flex h-full w-full justify-center items-center">
+          <TypographyH3 position={"border-none"}>Посты отсутствуют</TypographyH3>
+        </div>
       ) : (
         posts
           .reverse()

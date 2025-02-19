@@ -23,7 +23,7 @@ export const PostCard = ({ className, post, ...props }) => {
       {...props}
     >
       <CardHeader className="relative">
-        <Link href={`/blog/${post.id}`}>
+        <Link href={`/blog/${post.slug}`}>
           <Image
             className="object-cover rounded-t-md md:rounded-l-md md:rounded-r-none hover:grayscale-[0.5] transform hover:scale-y-105 origin-top hover:md:scale-x-105 md:origin-left transition-all delay-150 duration-500"
             src={post.image || "/images/placeholderImage.svg"}
@@ -44,7 +44,7 @@ export const PostCard = ({ className, post, ...props }) => {
           </span>
         </div>
         <CardTitle className="text-2xl leading-normal scroll-m-20 md:text-2xl">
-          <Link href={`/blog/${post.id}`} key={post.id}>
+          <Link href={`/blog/${post.slug}`} key={post.id}>
             {post.title}
           </Link>
         </CardTitle>
@@ -55,7 +55,7 @@ export const PostCard = ({ className, post, ...props }) => {
           <span>{post.author}</span>
           <Link
             className="w-fit sm:place-self-end"
-            href={`/blog/${post.id}`}
+            href={`/blog/${post.slug}`}
             key={post.id}
           >
             <Button>Подробнее</Button>

@@ -1,17 +1,35 @@
 "use server";
 
-import { Suspense } from "react";
 import Image from "next/image";
+import { Suspense } from "react";
 import { Loader } from "@/components/Loader";
 import { getPostById } from "@/lib/data";
 import { Sidebar } from "@/components/Sidebar";
 import { EditBlock } from "@/components/EditBlock";
 import { SocialIcons } from "@/components/SocialIcons";
+import { notFound } from "next/navigation";
+import { TypographyH3 } from "@/components/ui/TypographyH3";
 
-export default async function Post({ params }) {
-  const newParams = await params;
-  const post = await getPostById(newParams.id);
-  const text = await post.text.split("<>");
+export default async function BlogPostPage({params}) {
+  const { slug } =  await params;
+  const post = await getPostById(slug);
+
+  if (!post) {
+    redirect("/notFound");
+    return notFound;
+  }
+
+  if (!post.text) {
+    return (
+      <div className="flex h-full w-full justify-center items-center">
+        <TypographyH3 position={"border-none"}>
+          Такого поста ещё не существует
+        </TypographyH3>
+      </div>
+    );
+  }
+
+  const text = post.text.split("<>");
 
   return (
     <div className="grid grid-cols lg:grid-cols-[5fr,1fr] w-[80%] mx-auto gap-8">
@@ -68,5 +86,3 @@ export default async function Post({ params }) {
     </div>
   );
 }
-
-// notFound? if post undefined

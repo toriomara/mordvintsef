@@ -1,6 +1,7 @@
 // url: http://localhost:3010/api/posts
 import prisma from "@/lib/prismadb";
 import { NextResponse } from "next/server";
+import slugify from "slugify";
 
 export const GET = async () => {
   try {
@@ -18,6 +19,8 @@ export const POST = async (request) => {
   try {
     const body = await request.json();
     const { title, description, image, text, author, category } = body;
+    const slug = slugify(title, { lower: true, strict: true });
+
     const newPost = await prisma.post.create({
       data: {
         title,
@@ -26,6 +29,7 @@ export const POST = async (request) => {
         text,
         author,
         category,
+        slug,
       },
     });
 

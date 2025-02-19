@@ -2,7 +2,7 @@
 
 import { unstable_noStore as noStore } from "next/cache";
 
-const getAllPosts = async () => {
+export async function getAllPosts() {
   noStore();
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/posts`, {
@@ -12,14 +12,18 @@ const getAllPosts = async () => {
   } catch (error) {
     throw new Error("Невозможно отобразить посты");
   }
-};
+}
 
-const getPostById = async (id) => {
+// [slug] or [id]? It's working both
+export async function getPostById(slug) {
   noStore();
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/posts/${id}`, {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/api/posts/${slug}`,
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!res) {
       return NotFound;
@@ -28,9 +32,9 @@ const getPostById = async (id) => {
   } catch (error) {
     throw new Error("Невозможно отобразить пост");
   }
-};
+}
 
-const getPostBySearch = async (search) => {
+export async function getPostBySearch(search) {
   noStore();
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/posts?q=${search}`
@@ -38,6 +42,4 @@ const getPostBySearch = async (search) => {
   if (!res.ok) throw new Error("Невозможно отобразить пост");
 
   return res.json();
-};
-
-export { getAllPosts, getPostById, getPostBySearch };
+}

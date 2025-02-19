@@ -67,9 +67,9 @@ export const SearchedPosts = ({ query, open, setOpen, closeDrawer }) => {
           <div className="grid grid-cols-1 gap-1 max-h-max">
             {filteredPosts.map((post) => (
               <Link
-                key={post.id}
+                key={post.slug}
                 onClick={handleClick}
-                href={`${process.env.NEXT_PUBLIC_URL}/blog/${post.id}`}
+                href={`${process.env.NEXT_PUBLIC_URL}/blog/${post.slug}`}
               >
                 <div className="grid grid-cols-[100px_minmax(80px,_1fr)] my-1 gap-3 text-xs rounded-md border border-border hover:shadow-lg transition-shadow items-center">
                   <div>

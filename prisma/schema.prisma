@@ -27,6 +27,7 @@ model Post {
   text        String
   author      String
   category    String
+  slug        String   @unique // !Important: The slug must be unique
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

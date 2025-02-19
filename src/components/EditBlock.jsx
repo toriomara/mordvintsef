@@ -13,7 +13,7 @@ export const EditBlock = ({ post }) => {
       {isSignedIn ? (
         <div className="grid justify-start xs:flex gap-4 py-4">
           <DeletePost id={post.id} />
-          <Link href={{ pathname: `/editpost/${post.id}`}}>
+          <Link href={{ pathname: `/editpost/${post.slug}`}}>
             <Button>Редактировать</Button>
           </Link>
         </div>

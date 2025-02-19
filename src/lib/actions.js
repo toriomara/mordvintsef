@@ -22,15 +22,18 @@ export async function createPost(post) {
   }
 }
 
-export async function updatePost(post, id) {
+export async function updatePost(post, slug) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/posts/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(post),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/api/posts/${slug}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(post),
+      }
+    );
   } catch (error) {
     console.error("Ошибка загрузки данных:", error);
     throw new Error("Ошибка обновления поста");
@@ -47,6 +50,5 @@ export async function deletePost({ id }) {
       message: "Failed To Delete Post",
     };
   }
-  revalidatePath("/blog");
   redirect("/blog");
 }
