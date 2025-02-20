@@ -10,13 +10,19 @@ import { SocialIcons } from "@/components/SocialIcons";
 import { notFound } from "next/navigation";
 import { TypographyH3 } from "@/components/ui/TypographyH3";
 
-export default async function BlogPostPage({params}) {
-  const { slug } =  await params;
+export default async function BlogPostPage({ params }) {
+  const { slug } = await params;
   const post = await getPostById(slug);
+
+  console.log("SLUG ===>>", slug);
 
   if (!post) {
     redirect("/notFound");
     return notFound;
+  }
+
+  if (!slug) {
+    redirect("/notFound");
   }
 
   if (!post.text) {

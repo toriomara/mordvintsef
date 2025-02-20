@@ -267,7 +267,7 @@ export default function ServicesPage() {
   return (
     <div className="w-[80%] mx-auto">
       <TypographyH1 position={"flex justify-center"}>Мои услуги</TypographyH1>
-      {services.map((category, index) => (
+      {/* {services.map((category, index) => (
         <div key={index} className="max-w-5xl mx-auto mb-8">
           <h2 className="text-2xl font-semibold text-zink-600 dark:text-zinc-100 mb-1">
             {category.category}
@@ -289,9 +289,11 @@ export default function ServicesPage() {
             </TableBody>
           </Table>
         </div>
-      ))}
+      ))} */}
       <section className="max-w-5xl mx-auto">
-        <TypographyH2 position={'flex text-center justify-center'}>Почему защита адвоката всегда оправдана?</TypographyH2>
+        <TypographyH2 position={"flex text-center justify-center"}>
+          Почему защита адвоката всегда оправдана?
+        </TypographyH2>
         <TypographyP>
           Юридическая помощь — это не та сфера, в которой экономия может
           привести к желаемому результату. Ошибки в защите прав, неправильно
@@ -337,6 +339,15 @@ export default function ServicesPage() {
         <TypographyBlockquote>
           Доверяйте профессионалам. Это инвестиция в ваше будущее.
         </TypographyBlockquote>
+
+        <TypographyH3 position={"my-10 border-none"}>
+          <a
+            target="_blank"
+            href="https://www.apvo-volgograd.ru/upload/Raznoe%20doc/%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D0%B0%20%D0%BF%D0%BE%20%D1%80%D0%B0%D1%81%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%D0%BC%202024%20%D1%81%D0%BA%D0%B0%D0%BD.pdf"
+          >
+            Стоимость услуг
+          </a>
+        </TypographyH3>
       </section>
     </div>
   );

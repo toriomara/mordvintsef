@@ -8,6 +8,7 @@ import React from "react";
 export const metadata = {
   title: "Об адвокате",
   description: "Об адвокате Романе Фёдоровиче Мордвинцеве",
+  // keywords: "dfklj? dkfjsdf, dfkjshdfkj, dskjfh. dsjfh, sdjhkfg"
 };
 
 function AboutPage() {
