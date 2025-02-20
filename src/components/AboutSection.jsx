@@ -51,10 +51,15 @@ export const AboutSection = () => {
             области «За профессиональное мастерство при защите прав, свобод и
             законных интересов граждан, продолжительную и безупречную работу»
           </p>
+          <p className="mb-4">
+            В 2023&nbsp;году награжден почётной грамотой Волгоградской
+            межрайонной коллегией адвокатов «За успехи в защите прав, свобод и
+            законных интересов доверителей»
+          </p>
         </div>
         <div className="md:w-1/2 flex justify-center">
           <Avatar className="w-64 h-64">
-            <AvatarImage src="https://harant.ru/wp-content/uploads/2023/05/160523-114637-harant-150x150.png.webp" />
+            <AvatarImage src="https://cdn.pixabay.com/photo/2020/08/25/11/10/chess-5516446_960_720.jpg" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
         </div>

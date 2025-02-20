@@ -48,7 +48,7 @@ function SearchModalPage({ closeDrawer }) {
           K
         </kbd>
       </DialogTrigger>
-      <DialogContent className="block w-2/3 h-2/3 md:w-1/2 md:h-1/2 bg-card p-0 text-zinc-800 dark:text-zinc-300 border-none">
+      <DialogContent className="block w-full h-[90%] sm:w-2/3 sm:h-2/3 md:w-1/2 md:h-1/2 bg-card p-0 text-zinc-800 dark:text-zinc-300 border-none">
         <DialogDescription className="sr-only">
           Диалоговое окно для поиска по сайту
         </DialogDescription>

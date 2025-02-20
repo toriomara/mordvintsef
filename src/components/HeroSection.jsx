@@ -40,7 +40,7 @@ export const HeroSection = () => {
           <TypographyH1 position={"text-2xl xs:text-3xl my-2 leading-6"}>
             Адвокат
             <br />
-            Роман&nbsp;Фёдорович Мордвинцев
+            Мордвинцев Роман&nbsp;Фёдорович
           </TypographyH1>
           <TypographyH2
             position={"text-xl xs:text-2xl md:text-3xl md:text-4xl leading-6"}

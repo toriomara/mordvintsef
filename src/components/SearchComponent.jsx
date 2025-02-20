@@ -45,7 +45,7 @@ export const SearchComponent = ({ open, setOpen, closeDrawer }) => {
           defaultValue={searchParams.get("query")?.toString()}
         />
       </div>
-      <div className="h-96 overflow-y-auto">
+      <div className="h-[90%] sm:h-96 overflow-y-auto">
         <SearchedPosts
           query={query}
           open={open}

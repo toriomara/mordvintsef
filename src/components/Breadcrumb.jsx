@@ -43,7 +43,9 @@ export function BreadcrumbHeader() {
             // const linkName = link[0].toUpperCase() + link.slice(1, link.length);
             const linkName =
               translations[link] ||
-              link[0].toUpperCase() + link.slice(1).split("-").join(" ");
+              link[0].toUpperCase() +
+                link.slice(1).split("-").join(" ").slice(0, 30) +
+                "...";
             const isLastPath = pathNames.length === index + 1;
 
             return (

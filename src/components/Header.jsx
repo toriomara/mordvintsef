@@ -7,18 +7,16 @@ import { navLinks } from "@/constants";
 import { useActivePath } from "@/hooks/useActivePath";
 import { MobileMenu } from "./MobileMenu";
 import { PhoneBlock } from "./PhoneBlock";
-import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import theme from "tailwindcss/defaultTheme";
-import { dark, light } from "@clerk/themes";
-import { FiUser } from "react-icons/fi";
 import SearchModalPage from "@/app/(main)/@modal/(.)search/page";
 import { BreadcrumbHeader } from "./Breadcrumb";
+import { usePathname } from "next/navigation";
+import { LoginComponent } from "./LoginComponent";
 
 export const Header = () => {
   const checkActivePath = useActivePath();
   const [isScrolled, setIsScrolled] = useState(false);
+  const path = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,23 +57,11 @@ export const Header = () => {
               </div>
             </div>
             <div className="inline-flex gap-4">
-              <div className="hidden lg:flex">
-                <SignedOut>
-                  <Link href="sign-in">
-                    <Button>
-                      <FiUser />
-                      SignIn
-                    </Button>
-                  </Link>
-                </SignedOut>
-                <SignedIn>
-                  <UserButton
-                    appearance={{
-                      baseTheme: theme === "light" ? light : dark,
-                    }}
-                  />
-                </SignedIn>
-              </div>
+              {path === "/dashboard" ? (
+                <div className="hidden lg:flex">
+                  <LoginComponent />
+                </div>
+              ) : null}
               <div className="hidden md:flex">
                 <PhoneBlock />
               </div>

@@ -27,25 +27,26 @@ export const CookieConsent = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed w-[50%] mx-auto bottom-4 left-4 right-4 p-4 bg-zinc-900 dark:bg-white dark:text-black text-white rounded-lg shadow-md flex flex-col md:flex-row items-center justify-between gap-3 z-30">
+    <div className="fixed w-2/3 md:w-1/2 mx-auto bottom-4 left-4 right-4 p-4 bg-zinc-900 dark:bg-white dark:text-black text-white rounded-lg flex flex-col lg:flex-row items-center justify-between gap-3 z-30 shadow-lg">
       <p className="text-sm">
-        Этот сайт использует куки для более удобного использования. Подробнее
-        можно прочитать{" "}
+        Мы используем куки, они делают использование сайта более удобным.
+        Подробнее можно прочитать{" "}
         <Link href="/terms" className="underline text-primary ml-1">
           здесь
         </Link>
       </p>
-      <div className="flex gap-2">
-        <Button
-          onClick={handleAccept}
-          className="bg-green-500 hover:bg-green-600"
-        >
+      <div className="flex gap-3">
+        <Button className="bg-primary shadow-lg" onClick={handleAccept}>
           Принять
         </Button>
-        <Button onClick={handleReject} className="bg-red-500 hover:bg-red-600">
+        <Button
+          className="shadow-lg"
+          onClick={handleReject}
+          variant="secondary"
+        >
           Отклонить
         </Button>
       </div>
     </div>
   );
-}
+};
