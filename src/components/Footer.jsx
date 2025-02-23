@@ -46,13 +46,13 @@ export const Footer = () => {
               <Link className="link max-w-max" href="/">
                 Главная
               </Link>
-              <Link className="max-w-max" href="/services">
+              <Link className="link max-w-max" href="/services">
                 Услуги
               </Link>
-              <Link className="max-w-max" href="/about">
+              <Link className="link max-w-max" href="/about">
                 Об адвокате
               </Link>
-              <Link className="max-w-max" href="/blog">
+              <Link className="link max-w-max" href="/blog">
                 Блог
               </Link>
             </div>

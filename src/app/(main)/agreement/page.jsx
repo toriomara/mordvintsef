@@ -5,8 +5,8 @@
 import { TypographyH1 } from "@/components/ui/TypographyH1";
 
 export const metadata = {
-  title: "Блог",
-  description: "Блог адвоката Романа Фёдоровича Мордвинцева",
+  title: "Согласие на обработку персональных данных",
+  description: "Сайт профессионального адвоката Романа Фёдоровича Мордвинцева",
 };
 
 export default async function AgreementPage() {

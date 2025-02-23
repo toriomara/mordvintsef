@@ -2,10 +2,9 @@
 const nextConfig = {
   // experimental: {
   //   externalDir: true,
-  //   // Disable experimental font loading
   //   fontDevOptions: false,
   // },
-
+  output: "standalone",
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
