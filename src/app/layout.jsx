@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
 import { CookieConsent } from "@/components/CookieConsent";
+import { Analytics } from "@/components/Analytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,6 +44,7 @@ export default function RootLayout(props) {
         <body
           className={`${inter.variable} antialiased flex flex-col h-screen w-full`}
         >
+          <Analytics />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -50,7 +52,7 @@ export default function RootLayout(props) {
             disableTransitionOnChange
           >
             <Toaster />
-            <CookieConsent />
+            {/* <CookieConsent /> */}
             {props.children}
           </ThemeProvider>
         </body>

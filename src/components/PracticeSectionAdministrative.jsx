@@ -3,7 +3,7 @@ import { TypographyH2 } from "./ui/TypographyH2";
 
 export const PracticeSectionAdministrative = () => {
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="container-content">
       <TypographyH2>Моя практика</TypographyH2>
       <p className="py-4">
         Адвокат Мордвинцев Р.Ф. добился в суде освобождения Б.В.К. от

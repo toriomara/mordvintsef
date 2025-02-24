@@ -3,7 +3,7 @@ import { TypographyH2 } from "./ui/TypographyH2";
 
 export const PracticeSectionCriminal = () => {
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="container-content">
       <TypographyH2>Моя практика</TypographyH2>
       <p className="py-4">
         Защищая в Краснооктябрьском районном суде г. Волгограда гражданина Л.

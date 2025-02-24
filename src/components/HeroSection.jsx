@@ -35,7 +35,7 @@ export const HeroSection = () => {
         quality={100}
         className="hidden lg:block -z-10 "
       />
-      <div className="grid grid-cols grid-rows-auto md:grid-cols-2 gap-3 md:gap-0 w-[80%] mx-auto border-b pb-6">
+      <div className="grid grid-cols grid-rows-auto md:grid-cols-2 gap-3 md:gap-0 border-b pb-6 container-content">
         <div className="grid gap-2 md:gap-6">
           <TypographyH1 position={"text-2xl xs:text-3xl my-2 leading-6"}>
             Адвокат

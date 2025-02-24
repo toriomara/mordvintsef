@@ -37,7 +37,7 @@ const socials = [
 export const ContactsPage = () => {
   return (
     <div>
-      <div className="w-[80%] mx-auto">
+      <div className="container-content">
         <div className="text-center">
           <TypographyH1>Контакты</TypographyH1>
         </div>
@@ -94,3 +94,5 @@ export const ContactsPage = () => {
 };
 
 export default ContactsPage;
+
+

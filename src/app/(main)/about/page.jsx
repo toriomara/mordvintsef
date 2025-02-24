@@ -12,7 +12,7 @@ export const metadata = {
 
 function AboutPage() {
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="container-content">
       <TypographyH1 position={"flex justify-center"}>
         Об адвокате Р.Ф.&nbsp;Мордвинцеве
       </TypographyH1>

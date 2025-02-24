@@ -13,7 +13,7 @@ export const metadata = {
 
 export default async function BlogPage() {
   return (
-    <div className="grid w-[80%] grid-cols lg:grid-cols-[5fr,1fr] mx-auto gap-8">
+    <div className="grid grid-cols lg:grid-cols-[5fr,1fr] container-content gap-8">
       <div>
         <TypographyH1 position={"text-center"}>Блог</TypographyH1>
         <AddPostButton />

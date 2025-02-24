@@ -103,6 +103,10 @@ body {
   @apply xs:w-[90%] w-[95%] mx-auto;
 }
 
+.container-content {
+  @apply xs:w-[90%] w-[80%] max-w-[1440px] mx-auto px-4;
+}
+
 .customIcon {
   @apply h-10 w-10;
 }

@@ -4,7 +4,7 @@ import { TypographyH2 } from "./ui/TypographyH2";
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="w-[80%] mx-auto my-10">
+    <section id="about" className="container-content my-10">
       <div className="flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-1/2">
           <TypographyH2 position={"mb-4"}>Об адвокате</TypographyH2>

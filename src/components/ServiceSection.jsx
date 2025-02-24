@@ -109,7 +109,7 @@ const services = [
 
 export const ServiceSection = () => {
   return (
-    <section className="w-[80%] mx-auto py-12 bg-zinc-100 dark:bg-zinc-900">
+    <section className="container-content py-12 bg-zinc-100 dark:bg-zinc-900">
       <div className="container mx-auto px-6 text-center">
         <TypographyH2 position={"flex justify-center my-10"}>
           Мои услуги
