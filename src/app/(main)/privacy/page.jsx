@@ -13,8 +13,8 @@ import {
 import { TypographyH1 } from "@/components/ui/TypographyH1";
 
 export const metadata = {
-  title: "Блог",
-  description: "Блог адвоката Романа Фёдоровича Мордвинцева",
+  title: "Политика в отношении обработки персональных данных",
+  description: "Сайт адвоката Романа Фёдоровича Мордвинцева, Волгоград",
 };
 
 export default function PrivacyPage() {

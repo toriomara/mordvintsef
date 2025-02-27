@@ -48,7 +48,7 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section className="grid w-[80%] mx-auto my-10">
+    <section className="grid container-content my-10">
       <TypographyH2 position={'flex justify-center'}>Отзывы</TypographyH2>
       <TestimonialsSlider testimonials={testimonials} />
     </section>

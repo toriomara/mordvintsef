@@ -7,13 +7,12 @@ import React from "react";
 
 export const metadata = {
   title: "Об адвокате",
-  description: "Об адвокате Романе Фёдоровиче Мордвинцеве",
-  // keywords: "dfklj? dkfjsdf, dfkjshdfkj, dskjfh. dsjfh, sdjhkfg"
+  description: "О волгоградском адвокате Романе Фёдоровиче Мордвинцеве",
 };
 
 function AboutPage() {
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="container-content">
       <TypographyH1 position={"flex justify-center"}>
         Об адвокате Р.Ф.&nbsp;Мордвинцеве
       </TypographyH1>

@@ -11,9 +11,9 @@ export default function HomePage() {
   return (
     <div className="grid">
       <HeroSection />
+      <AboutSection />
       <PracticeSectionAdministrative />
       <PracticeSectionCriminal />
-      <AboutSection />
       <StatisticSection />
       <ServiceSection />
       <Testimonials />

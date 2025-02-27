@@ -26,7 +26,7 @@ class ErrorBoundary extends React.Component {
       // You can render any custom fallback UI
       return (
         <div className="grid max-h-fit justify-center items-center gap-4">
-          <TypographyH3>Упс, ошибочка вышла!</TypographyH3>
+          <TypographyH3>Ошибка загрузки</TypographyH3>
           <Button
             variant="outline"
             onClick={() => this.setState({ hasError: false })}

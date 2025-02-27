@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate --schema=/schema.prisma"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.10.0",
@@ -43,7 +43,7 @@
     "@tiptap/react": "^2.11.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cmdk": "^1.0.0",
+    "cmdk": "^1.0.4",
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^12.0.6",
     "lucide-react": "^0.469.0",
@@ -53,10 +53,11 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
     "react-icons": "^5.4.0",
+    "sharp": "^0.33.5",
     "slugify": "^1.6.6",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "tiptap": "^1.32.2",
+    "tiptap": "^0.15.0",
     "use-debounce": "^10.0.4",
     "vaul": "^1.1.2",
     "zod": "^3.24.1"

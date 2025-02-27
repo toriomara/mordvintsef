@@ -40,9 +40,9 @@ export async function updatePost(post, slug) {
   }
 }
 
-export async function deletePost({ id }) {
+export async function deletePost({ slug }) {
   try {
-    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/posts/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/posts/${slug}`, {
       method: "DELETE",
     });
   } catch (error) {

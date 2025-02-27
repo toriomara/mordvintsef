@@ -14,10 +14,10 @@ import {
 import { useState } from "react";
 import { deletePost } from "@/lib/actions";
 
-export function DeletePost(id) {
+export function DeletePost(slug) {
   const [open, setOpen] = useState(false);
 
-  const deletePostWithId = deletePost.bind(null, id);
+  const deletePostWithId = deletePost.bind(null, slug);
   const deletePostWithIdandUi = () => {
     setOpen(false);
     deletePostWithId();

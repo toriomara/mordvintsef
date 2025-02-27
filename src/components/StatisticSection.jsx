@@ -10,7 +10,7 @@ const stats = [
 
 export const StatisticSection = () => {
   return (
-    <section className="w-[75%] mx-auto my-10">
+    <section className="container-content my-10">
       <TypographyH2 position={"flex justify-center text-center mb-6"}>
         Немного статистики
       </TypographyH2>

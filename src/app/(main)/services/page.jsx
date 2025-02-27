@@ -265,7 +265,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="container-content">
       <TypographyH1 position={"flex justify-center"}>Мои услуги</TypographyH1>
       {/* {services.map((category, index) => (
         <div key={index} className="max-w-5xl mx-auto mb-8">
@@ -290,7 +290,7 @@ export default function ServicesPage() {
           </Table>
         </div>
       ))} */}
-      <section className="max-w-5xl mx-auto">
+      <section className="">
         <TypographyH2 position={"flex text-center justify-center"}>
           Почему защита адвоката всегда оправдана?
         </TypographyH2>
