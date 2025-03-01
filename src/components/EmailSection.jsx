@@ -7,8 +7,38 @@ import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
 import { SocialIcons } from "./SocialIcons";
 import { VscSend } from "react-icons/vsc";
+import { useState } from "react";
 
 export const EmailSection = () => {
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, phone, subject, message }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert("Сообщение успешно отправлено!");
+        setEmail("");
+        setPhone("");
+        setSubject("");
+        setMessage("");
+      } else {
+        alert("Ошибка: " + data.message);
+      }
+    } catch (error) {
+      console.log("Не удалось отправить сообщение: " + error.message);
+    }
+  };
+
   return (
     <Card className="container-content my-12 grid md:grid-cols-2 gap-10 p-8 shadow-none">
       <div className="">
@@ -26,7 +56,7 @@ export const EmailSection = () => {
         <SocialIcons layout={"flex"} />
       </div>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="block justify-between sm:flex sm:space-x-8 mb-1">
             <div className="w-full sm:w-1/2 mb-6 sm:mb-0">
               <label className="block mb-2 text-sm font-medium" htmlFor="email">
@@ -38,6 +68,8 @@ export const EmailSection = () => {
                 id="email"
                 required
                 placeholder="ivan.baryshnikov@yandex.ru"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="w-full sm:w-1/2">
@@ -50,6 +82,8 @@ export const EmailSection = () => {
                 id="phone"
                 required
                 placeholder="123454678945"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
           </div>
@@ -67,6 +101,8 @@ export const EmailSection = () => {
               id="subject"
               required
               placeholder="Например, спор при межевании земельного участка"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
             />
           </div>
           <div className="mb-6">
@@ -77,6 +113,8 @@ export const EmailSection = () => {
               name="message"
               id="message"
               placeholder="Опишите вашу ситуацию"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
             <div className="flex mt-1 text-mx font-light leading-3">
               <div className="pr-1">**</div>

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   HoverCard,
   HoverCardTrigger,
@@ -8,14 +10,13 @@ const certificates = [
   {
     name: "Certificate 1",
     description: "This is the first certificate.",
-    image: "https://example.com/cert1.png",
+    image: "/images/certificates/certificate.webp",
   },
   {
     name: "Certificate 2",
     description: "This is the second certificate.",
-    image: "https://example.com/cert2.png",
+    image: "/images/certificates/certificate_2.webp",
   },
-  // Add more certificates here...
 ];
 
 export const CertificateSection = () => {
@@ -23,9 +24,9 @@ export const CertificateSection = () => {
     <div className="grid grid-cols-1 gap-4">
       {certificates.map((certificate, index) => (
         <HoverCard key={index}>
-          <HoverCardTrigger
-            as={(props) => <div {...props}>{certificate.name}</div>}
-          />
+          <HoverCardTrigger>{certificate.name}</HoverCardTrigger>
+            {/* as={(props) => <div {...props}></div>} */}
+          
           <HoverCardContent className="w-64">
             <div className="flex flex-col space-y-2">
               <img src={certificate.image} alt={certificate.name} />
