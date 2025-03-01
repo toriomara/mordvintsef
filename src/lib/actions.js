@@ -7,10 +7,10 @@ export async function createPost(post) {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/posts`, {
       method: "POST",
-      body: JSON.stringify(post),
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(post),
     });
     const data = await res.json();
     revalidatePath("/blog");

@@ -4,7 +4,7 @@
 
 import { CardContact } from "@/components/CardContact";
 import { DrawerMap } from "@/components/DrawerMap";
-import { EmailSection } from "@/components/EmailSection";
+import { ContactForm } from "@/components/ContactForm";
 import GoogleMap from "@/components/GoogleMap";
 import { TypographyH1 } from "@/components/ui/TypographyH1";
 import { Mail } from "lucide-react";
@@ -88,7 +88,7 @@ export const ContactsPage = () => {
       <div className="my-16">
         <GoogleMap />
       </div>
-      <EmailSection />
+      <ContactForm />
     </div>
   );
 };
