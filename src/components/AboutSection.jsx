@@ -1,6 +1,14 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+"use client";
+
 import { TypographyH3 } from "./ui/TypographyH3";
 import { TypographyH2 } from "./ui/TypographyH2";
+import { CertificateList } from "./CertificateList";
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "@/components/ui/hover-card";
+import Image from "next/image";
 
 export const AboutSection = () => {
   return (
@@ -46,22 +54,48 @@ export const AboutSection = () => {
           <TypographyH3 position={"text-muted-foreground"}>
             Профессиональные достижения
           </TypographyH3>
-          <p className="mb-4">
-            В 2014&nbsp;году награжден грамотой Адвокатской палаты Волгоградской
-            области «За профессиональное мастерство при защите прав, свобод и
-            законных интересов граждан, продолжительную и безупречную работу»
-          </p>
-          <p className="mb-4">
-            В 2023&nbsp;году награжден почётной грамотой Волгоградской
-            межрайонной коллегии адвокатов «За успехи в защите прав, свобод и
-            законных интересов доверителей»
-          </p>
+          <div className="mb-4">
+            В 2014&nbsp;году награждён
+            <HoverCard>
+              <HoverCardTrigger className="text-primary">
+                {" "}
+                грамотой Адвокатской палаты Волгоградской области{" "}
+              </HoverCardTrigger>
+              <HoverCardContent className="w-[290px] md:w-[400px]">
+                <Image
+                  src="/images/diplomas/lawer_2014.jpg"
+                  alt="Грамота"
+                  width={400}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                />
+              </HoverCardContent>
+              «За профессиональное мастерство при защите прав, свобод и законных
+              интересов граждан, продолжительную и безупречную работу»
+            </HoverCard>
+          </div>
+          <div className="mb-4">
+            В 2023&nbsp;году награждён
+            <HoverCard>
+              <HoverCardTrigger className="text-primary">
+                {" "}
+                почётной грамотой Волгоградской межрайонной коллегии адвокатов{" "}
+              </HoverCardTrigger>
+              <HoverCardContent className="w-[290px] md:w-[400px]">
+                <Image
+                  src="/images/diplomas/certificate_2023.jpg"
+                  alt="Грамота"
+                  width={700}
+                  height={700}
+                  className="w-full h-auto object-cover"
+                />
+              </HoverCardContent>
+              «За успехи в защите прав, свобод и законных интересов доверителей»
+            </HoverCard>
+          </div>
         </div>
-        <div className="md:w-1/2 flex justify-center">
-          <Avatar className="w-64 h-64">
-            <AvatarImage src="https://cdn.pixabay.com/photo/2020/08/25/11/10/chess-5516446_960_720.jpg" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+        <div className="md:w-1/2 justify-center">
+          <CertificateList />
         </div>
       </div>
     </section>
