@@ -11,13 +11,12 @@ import {
 } from "@/components/ui/form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { sendMail } from "@/lib/send-email";
+import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
 import { SocialIcons } from "./SocialIcons";
-import { VscSend } from "react-icons/vsc";
 
 const contactFormSchema = z.object({
   email: z.string().email({ message: "Пожалуйста, введите правильный email" }),
@@ -46,18 +45,34 @@ export const ContactForm = () => {
   });
 
   const isLoading = form.formState.isSubmitting;
-  const onSubmit = async (values) => {
-    const mailText = `Phone: ${values.phone}\n  Email: ${values.email}\n Subject: ${values.subject}\n Message: ${values.message}`;
-    const response = await sendMail({
-      email: values.email,
-      subject: "Новое обращение",
-      text: mailText,
+
+  const onSubmit = async ({ email, phone, subject, message }) => {
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        phone,
+        subject,
+        message,
+      }),
     });
-    // if (response?.message) {
-    //   toast.success("Application Submitted Successfully.");
-    // } else {
-    //   toast.error("Failed To send application.");
-    // }
+
+    const data = await res.json();
+    if (data.success) {
+      toast("Success!", {
+        title: "Email sent successfully!",
+        description: `Your Email has been send successfully`,
+      });
+    } else {
+      toast("Success!", {
+        variant: "destructive",
+        title: "Error",
+        description: `Failed to send email. Please try again.`,
+      });
+    }
   };
 
   return (
