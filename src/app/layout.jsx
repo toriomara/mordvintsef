@@ -25,20 +25,25 @@ export default function RootLayout(props) {
     <ClerkProvider
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
     >
-      <html lang="en" suppressHydrationWarning>
+      <html lang="ru" suppressHydrationWarning>
         <head>
           <link rel="icon" href="/favicon.ico" sizes="any" />
           <link
             rel="icon"
-            href="/favicon.ico"
-            type="image/<generated>"
-            sizes="<generated>"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
           />
           <link
             rel="apple-touch-icon"
-            href="/apple-icon?<generated>"
-            type="image/<generated>"
-            sizes="<generated>"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
           />
         </head>
         <body

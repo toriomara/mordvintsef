@@ -9,7 +9,8 @@ import { Testimonials } from "@/components/Testimonials";
 
 export default function HomePage() {
   return (
-    <div className="grid">
+    // <div className="grid">
+    <>
       <HeroSection />
       <AboutSection />
       <PracticeSectionAdministrative />
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ServiceSection />
       <Testimonials />
       <BenefitSection />
-    </div>
+    </>
+    // </div>
   );
 }

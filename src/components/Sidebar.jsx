@@ -1,21 +1,17 @@
-import React from "react";
+import { getAllPosts } from "@/lib/data";
+import Link from "next/link";
 
-export const Sidebar = () => {
+export const Sidebar = async () => {
+  const posts = await getAllPosts();
+  // const posts = await res;
+
   return (
-    <div className="sticky self-start w-full h-full top-[94px] chessboard">
-      {/* <h2 className="font-bold text-lg">[Side Bar Menu]</h2>
-      <h2>Ever</h2>
-      <h2>Ever</h2>
-      <h2>Ever</h2>
-      <h2>Ever</h2>
-      <h2>Ever</h2>
-      <h2>Ever</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam
-        dolorum temporibus ullam voluptatibus laudantium reprehenderit quaerat
-        necessitatibus sit facere quisquam. Perferendis dolorem libero quaerat
-        atque?
-      </p> */}
+    <div className="sticky top-[94px] h-fit">
+      {posts.map((item, index) => (
+        <div key={index}>
+          <Link href={`/blog/${item.slug}`}>{item.title}</Link>
+        </div>
+      ))}
     </div>
   );
 };

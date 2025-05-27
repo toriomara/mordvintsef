@@ -11,6 +11,7 @@ import { Mail } from "lucide-react";
 import Link from "next/link";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { FaMobileScreen } from "react-icons/fa6";
+import { BreadcrumbAtPage } from "@/components/BreadcrumbAtPage";
 
 const socials = [
   {
@@ -36,11 +37,10 @@ const socials = [
 
 export const ContactsPage = () => {
   return (
-    <div>
-      <div className="container-content">
-        <div className="text-center">
-          <TypographyH1>Контакты</TypographyH1>
-        </div>
+    <>
+      <BreadcrumbAtPage />
+      <div className="container">
+        <TypographyH1 position={"flex justify-center"}>Контакты</TypographyH1>
         <div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-16">
             {socials.map((s) => (
@@ -89,10 +89,8 @@ export const ContactsPage = () => {
         <GoogleMap />
       </div>
       <ContactForm />
-    </div>
+    </>
   );
 };
 
 export default ContactsPage;
-
-

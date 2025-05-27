@@ -3,7 +3,7 @@ import { TypographyH2 } from "./ui/TypographyH2";
 import { TypographyLead } from "./ui/TypographyLead";
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
-import { Sidebar } from "./Sidebar";
+import { Chessboard } from "./Chessboard";
 
 const services = [
   {
@@ -31,7 +31,7 @@ export const HarantSection = () => {
       className="grid grid-cols lg:grid-cols-[2fr,4fr] gap-8 m-10"
     >
       <div className="hidden lg:flex">
-        <Sidebar />
+        <Chessboard />
       </div>
       <div>
         <TypographyH2 position={"flex justify-center my-10"}>

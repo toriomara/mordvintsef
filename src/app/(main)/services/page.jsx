@@ -1,4 +1,5 @@
 "use client";
+import { BreadcrumbAtPage } from "@/components/BreadcrumbAtPage";
 import {
   Table,
   TableHeader,
@@ -265,90 +266,93 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="container-content">
-      <TypographyH1 position={"flex justify-center"}>Мои услуги</TypographyH1>
-      {/* {services.map((category, index) => (
+    <>
+      <BreadcrumbAtPage />
+      <div className="container">
+        <TypographyH1 position={"flex justify-center"}>Мои услуги</TypographyH1>
+        {/* {services.map((category, index) => (
         <div key={index} className="max-w-5xl mx-auto mb-8">
           <h2 className="text-2xl font-semibold text-zink-600 dark:text-zinc-100 mb-1">
             {category.category}
-          </h2>
-          <Table className="w-full">
+            </h2>
+            <Table className="w-full">
             <TableHeader>
               <TableRow>
                 <TableHead className="text-left">Услуга</TableHead>
                 <TableHead className="text-right">Стоимость</TableHead>
-              </TableRow>
-            </TableHeader>
+                </TableRow>
+                </TableHeader>
             <TableBody>
-              {category.items.map((item, idx) => (
+            {category.items.map((item, idx) => (
                 <TableRow key={idx}>
                   <TableCell>{item.service}</TableCell>
                   <TableCell className="text-right whitespace-nowrap overflow-hidden text-ellipsis">{item.price}</TableCell>
-                </TableRow>
-              ))}
+                  </TableRow>
+                  ))}
             </TableBody>
-          </Table>
+            </Table>
         </div>
       ))} */}
-      <section className="">
-        <TypographyH2 position={"flex text-center justify-center"}>
-          Почему защита адвоката всегда оправдана?
-        </TypographyH2>
-        <TypographyP>
-          Юридическая помощь — это не та сфера, в которой экономия может
-          привести к желаемому результату. Ошибки в защите прав, неправильно
-          составленные документы или недостаточная аргументация в суде могут
-          стоить гораздо дороже, чем квалифицированные услуги профессионального
-          адвоката.
-        </TypographyP>
-        <TypographyH3 position={"my-6"}>
-          Что вы получаете, обращаясь к опытному адвокату?
-        </TypographyH3>
-        <ul>
-          <li>
-            Глубокий анализ вашей ситуации с учетом всех правовых нюансов.
-          </li>
-          <li>
-            Выработку стратегии защиты, основанной на актуальной судебной
-            практике.
-          </li>
-          <li>
-            Грамотное составление документов, исключающее риски отказа или
-            ошибок.
-          </li>
-          <li>
-            Представительство в суде и других инстанциях, где каждое слово и
-            аргумент могут иметь решающее значение.
-          </li>
-        </ul>
-        <TypographyH3 position={"my-6"}>Цена ошибки</TypographyH3>
-        <TypographyP>
-          Непрофессиональный подход или самостоятельное ведение сложных
-          юридических вопросов могут привести к утрате имущества, штрафам,
-          уголовной ответственности и другим серьезным последствиям. Иногда в
-          таких случаях исправить ситуацию уже невозможно или это требует
-          значительно больших затрат.
-        </TypographyP>
-        <TypographyH3 position={"my-6"}>Выбор за вами</TypographyH3>
-        <TypographyP>
-          Адвокат — это ваш защитник, стратег и проводник в мире сложного
-          законодательства. Доверяя профессионалу, вы не только увеличиваете
-          свои шансы на благоприятный исход, но и сохраняете спокойствие, зная,
-          что вашими интересами занимается специалист.
-        </TypographyP>
-        <TypographyBlockquote>
-          Доверяйте профессионалам. Это инвестиция в ваше будущее.
-        </TypographyBlockquote>
+        <section className="">
+          <TypographyH2 position={"flex text-center justify-center"}>
+            Почему защита адвоката всегда оправдана?
+          </TypographyH2>
+          <TypographyP>
+            Юридическая помощь — это не та сфера, в которой экономия может
+            привести к желаемому результату. Ошибки в защите прав, неправильно
+            составленные документы или недостаточная аргументация в суде могут
+            стоить гораздо дороже, чем квалифицированные услуги
+            профессионального адвоката.
+          </TypographyP>
+          <TypographyH3 position={"my-6"}>
+            Что вы получаете, обращаясь к опытному адвокату?
+          </TypographyH3>
+          <ul>
+            <li>
+              Глубокий анализ вашей ситуации с учетом всех правовых нюансов.
+            </li>
+            <li>
+              Выработку стратегии защиты, основанной на актуальной судебной
+              практике.
+            </li>
+            <li>
+              Грамотное составление документов, исключающее риски отказа или
+              ошибок.
+            </li>
+            <li>
+              Представительство в суде и других инстанциях, где каждое слово и
+              аргумент могут иметь решающее значение.
+            </li>
+          </ul>
+          <TypographyH3 position={"my-6"}>Цена ошибки</TypographyH3>
+          <TypographyP>
+            Непрофессиональный подход или самостоятельное ведение сложных
+            юридических вопросов могут привести к утрате имущества, штрафам,
+            уголовной ответственности и другим серьезным последствиям. Иногда в
+            таких случаях исправить ситуацию уже невозможно или это требует
+            значительно больших затрат.
+          </TypographyP>
+          <TypographyH3 position={"my-6"}>Выбор за вами</TypographyH3>
+          <TypographyP>
+            Адвокат — это ваш защитник, стратег и проводник в мире сложного
+            законодательства. Доверяя профессионалу, вы не только увеличиваете
+            свои шансы на благоприятный исход, но и сохраняете спокойствие,
+            зная, что вашими интересами занимается специалист.
+          </TypographyP>
+          <TypographyBlockquote>
+            Доверяйте профессионалам. Это инвестиция в ваше будущее.
+          </TypographyBlockquote>
 
-        <TypographyH3 position={"my-10 border-none"}>
-          <a
-            target="_blank"
-            href="https://www.apvo-volgograd.ru/upload/Raznoe%20doc/%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D0%B0%20%D0%BF%D0%BE%20%D1%80%D0%B0%D1%81%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%D0%BC%202024%20%D1%81%D0%BA%D0%B0%D0%BD.pdf"
-          >
-            Стоимость услуг
-          </a>
-        </TypographyH3>
-      </section>
-    </div>
+          <TypographyH3 position={"my-10 border-none"}>
+            <a
+              target="_blank"
+              href="https://www.apvo-volgograd.ru/upload/Raznoe%20doc/%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D0%B0%20%D0%BF%D0%BE%20%D1%80%D0%B0%D1%81%D1%86%D0%B5%D0%BD%D0%BA%D0%B0%D0%BC%202024%20%D1%81%D0%BA%D0%B0%D0%BD.pdf"
+            >
+              Стоимость услуг
+            </a>
+          </TypographyH3>
+        </section>
+      </div>
+    </>
   );
 }

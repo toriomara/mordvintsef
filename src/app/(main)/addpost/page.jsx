@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import {
   Form,
   FormControl,
@@ -69,8 +68,10 @@ const AddPostPage = () => {
   };
 
   return (
-    <div className="w-[80%] mx-auto">
-      <TypographyH1 position={'flex justify-center'}>Добавить пост</TypographyH1>
+    <>
+      <TypographyH1 position={"flex justify-center"}>
+        Добавить пост
+      </TypographyH1>
       <div className="flex justify-center">
         <Form {...form}>
           <form
@@ -198,7 +199,7 @@ const AddPostPage = () => {
           </form>
         </Form>
       </div>
-    </div>
+    </>
   );
 };
 

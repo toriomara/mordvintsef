@@ -1,15 +1,17 @@
 import React from "react";
 import { TypographyH2 } from "./ui/TypographyH2";
-import { Sidebar } from "./Sidebar";
+import { Chessboard } from "./Chessboard";
 
 export const PracticeSectionAdministrative = () => {
   return (
-    <div className="container-content grid lg:grid-cols-[2fr,4fr] gap-8">
+    <div className="container grid lg:grid-cols-[2fr,4fr] gap-8">
       <div className="hidden lg:flex">
-        <Sidebar />
+        <Chessboard />
       </div>
       <div>
-        <TypographyH2>Моя практика по делам об административных правонарушениях</TypographyH2>
+        <TypographyH2>
+          Моя практика по делам об административных правонарушениях
+        </TypographyH2>
         <p className="py-4">
           Адвокат Мордвинцев Р.Ф. добился в суде освобождения Б.В.К. от
           административной ответственности за отсутствием состава

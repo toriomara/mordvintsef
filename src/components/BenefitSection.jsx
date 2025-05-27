@@ -70,7 +70,7 @@ const reasons = [
 
 export const BenefitSection = () => {
   return (
-    <div className="container-content py-12">
+    <div className="container py-12">
       <TypographyH2 position={"flex justify-center text-center mb-6"}>
         Преимущества профессионального адвоката или почему выбирают меня?
       </TypographyH2>

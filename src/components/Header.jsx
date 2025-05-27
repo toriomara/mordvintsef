@@ -9,7 +9,6 @@ import { MobileMenu } from "./MobileMenu";
 import { PhoneBlock } from "./PhoneBlock";
 import { useEffect, useState } from "react";
 import SearchModalPage from "@/app/(main)/@modal/(.)search/page";
-import { BreadcrumbHeader } from "./Breadcrumb";
 import { usePathname } from "next/navigation";
 import { LoginComponent } from "./LoginComponent";
 
@@ -36,7 +35,7 @@ export const Header = () => {
           isScrolled ? "border-b" : ""
         }`}
       >
-        <div className="container">
+        <div className="container-wide">
           <nav className="flex items-center justify-between gap-10 min-h-16">
             <Logo />
             <div className="menu hidden xl:flex md:w-auto" id="navbar">
@@ -78,7 +77,7 @@ export const Header = () => {
           </nav>
         </div>
       </header>
-      <BreadcrumbHeader />
+      {/* <BreadcrumbHeader /> */}
     </>
   );
 };

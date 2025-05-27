@@ -10,7 +10,7 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 export const Footer = () => {
   return (
     <footer className="bg-zinc-100 dark:bg-background border-t border-zinc-300 dark:border-border mt-10">
-      <div className="container py-10">
+      <div className="container-wide py-10">
         <div className="grid border-b pb-4 border-zinc-300 dark:border-border font-light md:grid-cols-2 lg:grid-cols-12 grid-cols-1 gap-6 justify-between items-start text-zinc-900 bg:dark:text-neutral-200 dark:text-zinc-300">
           <div className="grid gap-4 lg:col-span-4 md:col-span-1">
             <Logo />

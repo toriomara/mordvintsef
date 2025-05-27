@@ -76,7 +76,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <Card className="container-content my-12 grid md:grid-cols-2 gap-10 p-8 shadow-none">
+    <Card className="container my-12 grid md:grid-cols-2 gap-10 p-8 shadow-none">
       <div className="">
         <h5 className="w-full mb-2 text-2xl font-semibold">
           Необходима консультация?
@@ -205,10 +205,6 @@ export const ContactForm = () => {
             <Button className="w-full" disabled={isLoading}>
               {isLoading ? "Отправка....." : "Отправить"}
             </Button>
-            {/* <Button className="w-full" type="submit">
-              Отправить
-              <VscSend />
-            </Button> */}
           </form>
         </Form>
       </div>

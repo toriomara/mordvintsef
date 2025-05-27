@@ -1,10 +1,10 @@
 import React from "react";
 import { TypographyH2 } from "./ui/TypographyH2";
-import { Sidebar } from "./Sidebar";
+import { Chessboard } from "./Chessboard";
 
 export const PracticeSectionCriminal = () => {
   return (
-    <div className="container-content grid lg:grid-cols-[4fr,1fr] gap-8 my-10">
+    <div className="container grid lg:grid-cols-[4fr,1fr] gap-8 my-10">
       <div>
         <TypographyH2>Моя практика по уголовным делам</TypographyH2>
         <p className="py-4">
@@ -27,7 +27,7 @@ export const PracticeSectionCriminal = () => {
         </p>
       </div>
       <div className="hidden lg:flex">
-        <Sidebar />
+        <Chessboard />
       </div>
     </div>
   );

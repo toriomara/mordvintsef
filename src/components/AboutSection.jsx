@@ -12,7 +12,7 @@ import Image from "next/image";
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="container-content my-10">
+    <section id="about" className="container my-10">
       <div className="flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-1/2">
           <TypographyH2 position={"mb-4"}>Об адвокате</TypographyH2>
