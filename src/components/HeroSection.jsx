@@ -27,17 +27,17 @@ export const HeroSection = () => {
   if (!mounted) return null;
 
   return (
-    <section className="md:my-10 bg-zinc-200 dark:bg-transparent z-10">
+    <section className="md:my-10 bg-zinc-200 dark:bg-transparent">
       <Image
         src={theme === "dark" ? advokatDark : advokatTransparent}
         alt="Background"
         layout="fill"
         objectFit="contain"
         quality={100}
-        className="hidden lg:block -z-10 "
+        className="hidden lg:block"
       />
-      <div className="grid grid-cols grid-rows-auto md:grid-cols-2 gap-3 md:gap-0 border-b pb-6 container">
-        <div className="grid gap-2 md:gap-6">
+      <div className="container grid grid-cols grid-rows-auto md:grid-cols-2 gap-3 md:gap-0 border-b pb-6">
+        <div className="grid gap-2 md:gap-6 z-0">
           <TypographyH1 position={"text-2xl xs:text-3xl my-2 leading-6"}>
             Адвокат
             <br />

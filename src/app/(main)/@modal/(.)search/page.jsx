@@ -11,8 +11,6 @@ import {
 } from "@/components/ui/dialog";
 import { Search, X } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import SearchPage from "../../search/page";
-import { Loader } from "@/components/Loader";
 import { SearchComponent } from "@/components/SearchComponent";
 
 function SearchModalPage({ closeDrawer }) {
