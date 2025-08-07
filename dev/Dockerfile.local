@@ -1,0 +1,240 @@
+# "postinstall": "prisma generate --schema=schema.prisma"
+
+# # 1. Базовый образ
+# FROM node:20-alpine
+
+# # 2. Рабочая директория внутри контейнера
+# WORKDIR /app
+
+# # Отключаем postinstall через переменную
+# ENV SKIP_PRISMA_GENERATE=true
+
+# # 3. Установка зависимостей
+# COPY package*.json ./
+# RUN npm install
+
+# # 4. Копирование остальных файлов
+# COPY . .
+
+# # 5. Генерация Prisma Client
+# RUN npx prisma generate --schema=prisma/schema.prisma
+
+# # 6. Открываем порт
+# EXPOSE 3000
+
+# # 7. Запуск dev-сервера (можно заменить на `build` + `start` для production)
+# CMD ["npm", "run", "dev"]
+
+
+
+# LOCAL DOCKER BUILD
+# Используем легкий node образ
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Копируем только необходимые файлы
+COPY .next .next
+COPY node_modules node_modules
+COPY package*.json ./
+COPY public public
+
+# Опционально: если Prisma клиент
+COPY prisma prisma
+
+ENV NODE_ENV=production
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+
+
+# ***********************************************************************
+# ****                                                               ****    
+# ****                   Second Edition                              ****    
+# ****                                                               ****    
+# =======================================================================
+
+# Dockerfile
+# 1. Базовый образ (для сборки)
+FROM node:22-alpine AS builder
+
+# Установка зависимостей
+WORKDIR /app
+COPY package*.json ./
+ENV SKIP_PRISMA_GENERATE=true
+RUN npm install
+
+# Копирование всех файлов
+COPY . .
+
+# Генерация Prisma Client
+RUN npx prisma generate
+
+# Сборка Next.js
+RUN npm run build
+
+
+# 2. Финальный образ (для запуска)
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Копируем только нужные файлы из builder-а
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/prisma ./prisma
+
+ENV NODE_ENV=production
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+
+
+# **************************************************************************
+
+# DOCKER-COMPOSE.YML
+# version: "3.9"
+
+# services:
+#   app:
+#     container_name: nextjs-app
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       - DATABASE_URL=${DATABASE_URL}
+#       - CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
+#       - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+#     depends_on:
+#       - mongo
+#     volumes:
+#       - .:/app
+#       - /app/node_modules
+#     command: npm run dev
+#     env_file:
+#       - .env
+#
+#   mongo:
+#     image: mongo:7.0
+#     container_name: mongodb
+#     restart: always
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongo_data:/data/db
+
+# volumes:
+#   mongo_data:
+
+
+# FOR LOCAL DOCKER BUILD
+# version: "4.0"
+
+# services:
+#   app:
+#     build: .
+#     ports:
+#       - "80:3000"
+#     environment:
+#       - DATABASE_URL=${DATABASE_URL}
+#     depends_on:
+#       - mongo
+
+#   mongo:
+#     image: mongo:7.0
+#     container_name: mongodb
+#     restart: always
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongo_data:/data/db
+
+# volumes:
+#   mongo_data:
+
+# **************************************************************************
+
+# PACKAGE.JSON
+# {
+#   "name": "mordvintsef",
+#   "version": "0.1.0",
+#   "private": true,
+#   "scripts": {
+#     "dev": "next dev --turbopack",
+#     "build": "next build",
+#     "start": "next start",
+#     "lint": "next lint",
+#     "postinstall": "if [ \"$SKIP_PRISMA_GENERATE\" != \"true\" ]; then prisma generate --schema=prisma/schema.prisma; fi"
+#   },
+#   "dependencies": {
+#     "@clerk/nextjs": "^6.24.0",
+#     "@clerk/themes": "^2.2.10",
+#     "@headlessui/react": "^2.2.0",
+#     "@hookform/resolvers": "^3.10.0",
+#     "@prisma/client": "^6.2.1",
+#     "@radix-ui/react-accordion": "^1.2.2",
+#     "@radix-ui/react-avatar": "^1.1.2",
+#     "@radix-ui/react-dialog": "^1.1.4",
+#     "@radix-ui/react-dropdown-menu": "^2.1.4",
+#     "@radix-ui/react-hover-card": "^1.1.6",
+#     "@radix-ui/react-label": "^2.1.1",
+#     "@radix-ui/react-navigation-menu": "^1.2.5",
+#     "@radix-ui/react-popover": "^1.1.4",
+#     "@radix-ui/react-scroll-area": "^1.2.2",
+#     "@radix-ui/react-select": "^2.1.5",
+#     "@radix-ui/react-slot": "^1.1.2",
+#     "@radix-ui/react-toast": "^1.2.6",
+#     "@radix-ui/react-toggle": "^1.1.1",
+#     "@radix-ui/react-visually-hidden": "^1.1.1",
+#     "@tiptap/core": "^2.11.3",
+#     "@tiptap/extension-blockquote": "^2.11.3",
+#     "@tiptap/extension-bullet-list": "^2.11.3",
+#     "@tiptap/extension-document": "^2.11.3",
+#     "@tiptap/extension-heading": "^2.11.3",
+#     "@tiptap/extension-link": "^2.11.3",
+#     "@tiptap/extension-list-item": "^2.11.3",
+#     "@tiptap/extension-paragraph": "^2.11.3",
+#     "@tiptap/extension-text": "^2.11.3",
+#     "@tiptap/extension-underline": "^2.11.3",
+#     "@tiptap/pm": "^2.11.3",
+#     "@tiptap/react": "^2.11.3",
+#     "class-variance-authority": "^0.7.1",
+#     "clsx": "^2.1.1",
+#     "cmdk": "^1.0.4",
+#     "embla-carousel-react": "^8.5.2",
+#     "framer-motion": "^12.0.6",
+#     "lucide-react": "^0.469.0",
+#     "next": "15.2.3",
+#     "next-themes": "^0.4.6",
+#     "nodemailer": "^6.10.0",
+#     "react": "^19.0.0",
+#     "react-dom": "^19.0.0",
+#     "react-hook-form": "^7.54.2",
+#     "react-icons": "^5.4.0",
+#     "sharp": "^0.33.5",
+#     "slugify": "^1.6.6",
+#     "sonner": "^2.0.1",
+#     "tailwind-merge": "^2.6.0",
+#     "tailwindcss-animate": "^1.0.7",
+#     "tiptap": "^0.15.0",
+#     "use-debounce": "^10.0.4",
+#     "vaul": "^1.1.2",
+#     "zod": "^3.24.1"
+#   },
+#   "devDependencies": {
+#     "@eslint/eslintrc": "^3",
+#     "eslint": "^9",
+#     "eslint-config-next": "15.1.4",
+#     "postcss": "^8",
+#     "prisma": "^6.2.1",
+#     "tailwindcss": "^3.4.1"
+#   }
+# }
+
+

@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # Сервис для Next.js приложения
+  nextjs-app:
+    image: toriomara/mordvintsef-docker:latest # <--- Имя вашего образа на Docker Hub
+    container_name: nextjs-app
+    # Привязываем порт 3000 контейнера к порту 3000 хост-машины
+    # Это позволит вам получить доступ к приложению через http://localhost:3000 (или IP сервера)
+    ports:
+      - "80:3000"
+    # Передаем переменные окружения из файла .env.production в контейнер
+    env_file:
+      - .env.production
+    # Зависимость от MongoDB: nextjs-app запустится только после того, как mongo будет готов
+    depends_on:
+      - mongo
+    # Перезапускать контейнер, если он завершился с ошибкой
+    restart: always
+    networks:
+      - app-network
+
+  # Сервис для базы данных MongoDB
+  mongo:
+    image: mongo:6.0 # Используем официальный образ MongoDB
+    container_name: mongodb
+    # Привязываем порт 27017 контейнера к порту 27017 хост-машины (опционально, для доступа извне)
+    #ports:
+    #  - "27017:27017"
+    # Сохраняем данные MongoDB в постоянном томе
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+    networks:
+      - app-network
+
+# Определяем тома для постоянного хранения данных
+volumes:
+  mongo_data:
+
+# Определяем сеть для взаимодействия контейнеров
+networks:
+  app-network:
+    driver: bridge
+
