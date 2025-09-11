@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import slugify from "slugify";
 
 export const GET = async (request, { params }) => {
-  const { slug } = await params; // Changed 'id' to 'slug'
+  const { slug } = await params; 
   try {
     // Assuming you have a 'slug' field in your Post model in Prisma
     const post = await prisma.post.findUnique({
@@ -32,7 +32,6 @@ export const PATCH = async (request, { params }) => {
   try {
     const body = await request.json();
     const { title, description, image, text, author, category } = body;
-    // const slug = slugify(title, { lower: true, strict: true });
 
     if (!title || typeof title !== "string") {
       return NextResponse.json(
@@ -40,11 +39,6 @@ export const PATCH = async (request, { params }) => {
         { status: 400 }
       );
     }
-
-    // Generate slug only if title exists
-    // const slug = title
-    //   ? slugify(title, { lower: true, strict: true })
-    //   : undefined;
 
     const { slug } = await params;
 

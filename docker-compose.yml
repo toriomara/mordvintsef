@@ -3,43 +3,63 @@ version: '3.8'
 services:
   # Сервис для Next.js приложения
   nextjs-app:
-    image: toriomara/mordvintsef-docker:latest # <--- Имя вашего образа на Docker Hub
+    image: toriomara/mordvintsef-docker:latest
     container_name: nextjs-app
-    # Привязываем порт 3000 контейнера к порту 3000 хост-машины
-    # Это позволит вам получить доступ к приложению через http://localhost:3000 (или IP сервера)
-    ports:
-      - "80:3000"
-    # Передаем переменные окружения из файла .env.production в контейнер
     env_file:
       - .env.production
-    # Зависимость от MongoDB: nextjs-app запустится только после того, как mongo будет готов
     depends_on:
       - mongo
-    # Перезапускать контейнер, если он завершился с ошибкой
     restart: always
     networks:
       - app-network
 
   # Сервис для базы данных MongoDB
   mongo:
-    image: mongo:6.0 # Используем официальный образ MongoDB
+    image: mongo:6.0
     container_name: mongodb
-    # Привязываем порт 27017 контейнера к порту 27017 хост-машины (опционально, для доступа извне)
-    #ports:
-    #  - "27017:27017"
-    # Сохраняем данные MongoDB в постоянном томе
     volumes:
       - mongo_data:/data/db
     restart: always
     networks:
       - app-network
 
-# Определяем тома для постоянного хранения данных
+  # Новый сервис для Nginx - обратного прокси
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"  # HTTP
+      - "443:443" # HTTPS
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf # Наш файл конфигурации
+      - ./nginx/sites-available:/etc/nginx/sites-available
+      - ./certbot/conf:/etc/letsencrypt # Для хранения сертификатов
+      - ./certbot/www:/var/www/certbot  # Для проверки Certbot
+    depends_on:
+      - nextjs-app
+    restart: always
+    networks:
+      - app-network
+
+  # Новый сервис для Certbot - автоматического получения SSL
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot --webroot-path=/var/www/certbot --email budkevich.vladimir@gmail.com --agree-tos --no-eff-email -d mordvintsef.ru -d www.mordvintsef.ru
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $$; done;'"
+    networks:
+      - app-network
+
+# ... (остальные тома и сети)
+
 volumes:
   mongo_data:
+  certbot-etc:
+  certbot-www:
 
-# Определяем сеть для взаимодействия контейнеров
 networks:
   app-network:
     driver: bridge
-

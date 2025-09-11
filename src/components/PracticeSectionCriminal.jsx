@@ -1,4 +1,3 @@
-import React from "react";
 import { TypographyH2 } from "./ui/TypographyH2";
 import { Chessboard } from "./Chessboard";
 

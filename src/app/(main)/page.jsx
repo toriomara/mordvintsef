@@ -9,7 +9,6 @@ import { Testimonials } from "@/components/Testimonials";
 
 export default function HomePage() {
   return (
-    // <div className="grid">
     <>
       <HeroSection />
       <AboutSection />
@@ -20,6 +19,5 @@ export default function HomePage() {
       <Testimonials />
       <BenefitSection />
     </>
-    // </div>
   );
 }

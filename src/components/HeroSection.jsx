@@ -15,7 +15,6 @@ import advokatTransparent from "../../public/images/advokatTransparent.png";
 
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import { Loader } from "./Loader";
 
 export const HeroSection = () => {
   const { theme } = useTheme();

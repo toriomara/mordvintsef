@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/card";
 
 export const PostCard = ({ className, post, ...props }) => {
+  // console.log("Image ===>>", post.image);
+
   return (
     <Card
       key={post.id}

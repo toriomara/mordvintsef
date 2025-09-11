@@ -1,9 +1,8 @@
-import { getAllPosts } from "@/lib/data";
 import Link from "next/link";
+import { getAllPosts } from "@/lib/data";
 
 export const Sidebar = async () => {
   const posts = await getAllPosts();
-  // const posts = await res;
 
   return (
     <div className="sticky top-[94px] h-fit">

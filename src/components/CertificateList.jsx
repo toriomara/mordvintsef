@@ -1,12 +1,12 @@
 "use client";
 
+import Image from "next/image";
+import { TypographyH3 } from "./ui/TypographyH3";
 import {
   HoverCard,
   HoverCardTrigger,
   HoverCardContent,
 } from "@/components/ui/hover-card";
-import { TypographyH3 } from "./ui/TypographyH3";
-import Image from "next/image";
 
 const certificates = [
   {
@@ -52,7 +52,6 @@ export const CertificateList = () => {
           <HoverCardTrigger>
             {index + 1}. {item.name}
           </HoverCardTrigger>
-          {/* as={(props) => <div {...props}></div>} */}
 
           <HoverCardContent className="w-74">
             <div className="flex flex-col space-y-2">
@@ -63,7 +62,6 @@ export const CertificateList = () => {
                 height={500}
                 priority
               />
-              {/* <h4 className="font-medium">{certificate.name}</h4> */}
               <p className="text-sm">{item.description}</p>
             </div>
           </HoverCardContent>

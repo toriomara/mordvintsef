@@ -24,7 +24,9 @@ COPY . .
 # NEXT_PUBLIC_*: переменные, доступные на клиенте
 # NEXT_*: переменные, доступные только на сервере
 # DATABASE_URL: переменная для Prisma, указывающая на вашу базу данных MongoDB
-ENV NODE_ENV production
+ENV NEXT_PUBLIC_BASE_URL=https://mordvintsef.ru
+
+ENV NODE_ENV=production
 RUN npx prisma generate
 RUN npm run build
 
@@ -36,7 +38,7 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 # Устанавливаем переменные окружения для продакшена
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Копируем только необходимые файлы из этапа сборки
 # Копируем собранный Next.js-проект

@@ -43,12 +43,10 @@ export function BreadcrumbAtPage({ title = "" }) {
           </BreadcrumbItem>
           {pathNames.map((link, index) => {
             const href = `/${pathNames.slice(0, index + 1).join("/")}`;
-            // const linkName = link[0].toUpperCase() + link.slice(1, link.length);
             const linkName =
               translations[link] ||
               link[0].toUpperCase() +
                 link.slice(1).split("-").join(" ").slice(0, 30);
-            // +  "...";
 
             const isLastPath = pathNames.length === index + 1;
 

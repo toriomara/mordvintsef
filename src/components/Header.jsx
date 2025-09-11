@@ -8,7 +8,7 @@ import { useActivePath } from "@/hooks/useActivePath";
 import { MobileMenu } from "./MobileMenu";
 import { PhoneBlock } from "./PhoneBlock";
 import { useEffect, useState } from "react";
-import SearchModalPage from "@/app/(main)/@modal/(.)search/page";
+import { SearchModalPage } from "@/app/(main)/@modal/(.)search/page";
 import { usePathname } from "next/navigation";
 import { LoginComponent } from "./LoginComponent";
 
@@ -77,7 +77,6 @@ export const Header = () => {
           </nav>
         </div>
       </header>
-      {/* <BreadcrumbHeader /> */}
     </>
   );
 };

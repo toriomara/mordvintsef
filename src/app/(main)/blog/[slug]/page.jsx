@@ -79,12 +79,12 @@ export default async function BlogPostPage({ params }) {
                 </div>
                 <div></div>
                 <div className="col-span-2 sm:col-span-1 leading-7">
-                  <div dangerouslySetInnerHTML={{ __html: post.text }} />
-                  {/* {text.map((item) => (
+                  {/* <div dangerouslySetInnerHTML={{ __html: post.text }} /> */}
+                  {text.map((item) => (
                   <div key={item}>
                     <div dangerouslySetInnerHTML={{ __html: item }} />
                   </div>
-                ))} */}
+                ))}
                 </div>
                 <div />
                 <div className="col-span-2 sm:col-span-1">

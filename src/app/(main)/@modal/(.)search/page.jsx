@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { Command } from "cmdk";
 import {
   Dialog,
@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Search, X } from "lucide-react";
+import { Search } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { SearchComponent } from "@/components/SearchComponent";
 
@@ -29,7 +29,7 @@ function SearchModalPage({ closeDrawer }) {
     };
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  }, [open]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -46,7 +46,7 @@ function SearchModalPage({ closeDrawer }) {
           K
         </kbd>
       </DialogTrigger>
-      <DialogContent className="block w-full h-[90%] sm:w-2/3 sm:h-2/3 md:w-1/2 md:h-1/2 bg-card p-0 text-zinc-800 dark:text-zinc-300 border-none">
+      <DialogContent className="block w-full max-h-[70vh] h-fit overflow-y-auto sm:w-2/3 md:w-1/2 bg-card p-0 text-zinc-800 dark:text-zinc-300 border-none">
         <DialogDescription className="sr-only">
           Диалоговое окно для поиска по сайту
         </DialogDescription>
@@ -65,4 +65,4 @@ function SearchModalPage({ closeDrawer }) {
   );
 }
 
-export default SearchModalPage;
+export { SearchModalPage };

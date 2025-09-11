@@ -1,19 +1,10 @@
 "use client";
 import { BreadcrumbAtPage } from "@/components/BreadcrumbAtPage";
-import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-} from "@/components/ui/table";
 import { TypographyBlockquote } from "@/components/ui/TypographyBlockquote";
 import { TypographyH1 } from "@/components/ui/TypographyH1";
 import { TypographyH2 } from "@/components/ui/TypographyH2";
 import { TypographyH3 } from "@/components/ui/TypographyH3";
 import { TypographyP } from "@/components/ui/TypographyP";
-import { TypographySmall } from "@/components/ui/TypographySmall";
 
 const services = [
   {

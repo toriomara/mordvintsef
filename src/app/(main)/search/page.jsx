@@ -1,13 +1,13 @@
 "use client";
 
+import { Suspense } from "react";
 import { Loader } from "@/components/Loader";
 import { SearchComponent } from "@/components/SearchComponent";
-import { Suspense } from "react";
 
 export default function Page() {
   return (
     <Suspense fallback={<Loader />}>
-      <SearchComponent />;
+      <SearchComponent />
     </Suspense>
   );
 }
