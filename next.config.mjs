@@ -17,61 +17,42 @@ const nextConfig = {
     ];
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'encrypted-tbn0.gstatic.com',
-      },
-      {
-        protocol: "https",
-        hostname: "tailwindui.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "m3.material.io",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "media.istockphoto.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "unsplash.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "plus.unsplash.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "firebasestorage.googleapis.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "hips.hearstapps.com",
-        port: "",
-        pathname: "/**",
-      },
-    ],
-  },
+  remotePatterns: [
+    {
+      protocol: "https",
+      hostname: "encrypted-tbn0.gstatic.com",
+    },
+    {
+      protocol: "https",
+      hostname: "tailwindui.com",
+    },
+    {
+      protocol: "https",
+      hostname: "m3.material.io",
+    },
+    {
+      protocol: "https",
+      hostname: "media.istockphoto.com",
+    },
+    {
+      protocol: "https",
+      hostname: "images.unsplash.com",
+    },
+    {
+      protocol: "https",
+      hostname: "plus.unsplash.com",
+    },
+    {
+      protocol: "https",
+      hostname: "firebasestorage.googleapis.com",
+    },
+    {
+      protocol: "https",
+      hostname: "hips.hearstapps.com",
+    },
+  ],
+  formats: ["image/avif", "image/webp"],
+},
 };
 
 export default nextConfig;
